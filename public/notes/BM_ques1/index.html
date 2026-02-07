@@ -1,0 +1,381 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            Brownian Motion - Existence Proof | L2-T2
+        </title>
+        <meta name="author" content="Liuting Chen" />
+        <meta name="description" content="Liuting Chen" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/link.jpg" />
+        <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 7.3.0"></head>
+
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>L2-T2</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/notes">
+            <i class="fa-solid fa-book fa-fw"></i>
+            <span>&ensp;Notes</span>
+        </a>
+        
+        <a href="/projects">
+            <i class="fa-solid fa-diagram-project fa-fw"></i>
+            <span>&ensp;Projects</span>
+        </a>
+        
+        <a href="/essays">
+            <i class="fa-solid fa-pen-fancy fa-fw"></i>
+            <span>&ensp;Essays</span>
+        </a>
+        
+        <a href="/codes">
+            <i class="fa-solid fa-code fa-fw"></i>
+            <span>&ensp;Codes</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;L2-T2</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/notes">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-book fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Notes</div>
+                    </div>
+                </a>
+                
+                <a href="/projects">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-diagram-project fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Projects</div>
+                    </div>
+                </a>
+                
+                <a href="/essays">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-pen-fancy fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Essays</div>
+                    </div>
+                </a>
+                
+                <a href="/codes">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-code fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Codes</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+                <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+                    <div class="article">
+    <div>
+        <h1>Brownian Motion - Existence Proof</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/2/6
+        </span>
+        
+        <span class="category">
+            <a href="/categories/notes/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                notes
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Probability/" style="color: #03a9f4">
+                    Probability
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Stochastic-Processes/" style="color: #00bcd4">
+                    Stochastic Processes
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Brownian-Motion/" style="color: #03a9f4">
+                    Brownian Motion
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="brownian-motion">Brownian Motion</h1>
+<p>Existence of a probabilistic Brownian motion</p>
+<span id="more"></span>
+<h2 id="statement-核心定义-statements">Statement: 核心定义 (Statements)</h2>
+<p>We know the definition of Brownian motion as below:</p>
+<p><strong>Definition 1.1</strong>: A probabilistic brownian motion is a process on <span class="math inline">\([0,\infty)\)</span>, whichi is Gaussian with mean function <span class="math inline">\(EX_{t} = 0\; \text{for}\; t \geq 0\)</span> and covariance function <span class="math inline">\(Cov(X_{s}, X_{t}) = \min\{s,t\}\; \text{for}\; s,t \in [0,\infty)\)</span>.</p>
+<h2 id="remarks">Remarks:</h2>
+<p>In the initial stage of constructing Brownian motion, we merely defined the covariance structure it should satisfiy. But we do not know whether it really exists, or just a formalized ideal object.</p>
+<p>Depends on the covariance function, we can do simulation on grid, but it is just a discrete approximation on a finite grid, which means we do not know:</p>
+<ul>
+<li>Is the sample path continuous?</li>
+<li>Does it osillate violently ar arbitrary small scales?</li>
+<li>Does the discrete approximation truly converge to a limiting object?</li>
+</ul>
+<p>Now we need to prove there is a true random object exists in some space, corresponding to this formal content.</p>
+<h2 id="statement">Statement:</h2>
+<p>We find the covaraince structure <span class="math inline">\(\min\{s,t\} = &lt;1_{[0,s]}, 1_{[0,t]}&gt;_{L^{2}[0,\infty)}\)</span>, which means the covariance of brownian motion is an inner product of two vectors in <span class="math inline">\(L^{2}\)</span> space.</p>
+<p>Now we can abstract the question to:</p>
+<p><strong>Definition 1.2</strong>: On a hilbert space, construct a Gaussian family <span class="math inline">\(\{W(h), h\in \mathbb{H}\}\)</span>, satisfies</p>
+<p><span class="math display">\[
+E[W(h)] = 0\quad Cov(W(h), W(g)) = &lt;h,g&gt;_{H}
+\]</span></p>
+<p>this is the isonormal Guassian process.</p>
+<p>So we transform the question of “whether Brownian motion exists” from path-level challenge into a natural result of Gaussian structure on a Hilbert space.</p>
+<p>Now we need to prove the existence of the Gaussian isonormal process.</p>
+<hr />
+<h2 id="proof">Proof:</h2>
+<p>Define <span class="math inline">\(n \in \mathbb{N}\)</span>, <span class="math inline">\(h \in \mathbb{H}\)</span>, we have <span class="math inline">\(W^{n}_{h} = \sum^{n}_{i=1} \langle h, e_{i} \rangle X_{i}\)</span>, where <span class="math inline">\(\{e_{i}\}\)</span> is the orthonormal basis.</p>
+<p>THe individual terms in these sums are independent Gaussian variable, with mean zero. Using <strong>Parseval’s formula</strong>, we find that</p>
+<p><span class="math display">\[
+\sum^{\infty}_{i=1} E(\langle h, e_{i} \rangle X_{i})^{2} = \sum^{\infty}_{i=1} \langle h, e_{i} \rangle^{2} = ||h||^{2} \lt \infty
+\]</span></p>
+<p>As this is finite, we can apply <strong>Khintchine-Kolmogorov’s theorem</strong>, so there exists a limit variable, such that <span class="math inline">\(W^{n}_{h} \rightarrow W_{h}\; a.s.\quad \text{and in}\; \mathcal{L}^{2}\)</span>.</p>
+<p>Then we can get a process <span class="math inline">\(\mathbb{W} = (W_{h})_{h \in \mathbb{H}}\)</span>. We claim that this process is isonormal.</p>
+<p>We have <span class="math inline">\(E W_{h} = \lim\limits_{n \rightarrow \infty} EW^{n}_{h} = 0\)</span> and <span class="math inline">\(EW^{2}_{h} = \lim\limits_{n \rightarrow \infty}E(W^{n}_{h})^{2} = ||h||^{2}\)</span>.</p>
+<p>From <span class="math inline">\(W^{n}_{h} \rightarrow W_{h}\; a.s.\)</span>, we know <span class="math inline">\(W^{n}_{h} \stackrel{\mathcal{D}}{\rightarrow} W_{h}\)</span>, and from example 6.5, we know that <span class="math inline">\(W^{n}_{h} \stackrel{\mathcal{D}}{\rightarrow} \mathcal{N}(0, ||h||^{2})\)</span>. then <span class="math inline">\(W_{h} \rightarrow \mathcal{N}(0, ||h||^{2})\)</span>.</p>
+<p>Next, to observe the map: <span class="math inline">\(h \mapsto W_{h}\)</span> is linear, which means</p>
+<p><span class="math display">\[
+W_{h_{1}} + W_{h_{2}} = W_{h_{1} + h_{2}}\quad c \cdot W_{h} = W_{c \cdot h}
+\]</span></p>
+<p>We can prove this by calculation.</p>
+<p>Depends on the linear combination <span class="math inline">\(\sum^{k}_{j = 1}c_{j}W_{h_{j}} = W_{\sum^{k}_{j=1}c_{j}h_{j}}\)</span>, the process is Gaussian as desired.</p>
+<p>Now about the covariance structure, we know: <span class="math inline">\(Cov(X,Y) = \frac{1}{2}(V(X+Y) - V(X) - V(Y))\)</span>. Then we can have:</p>
+<p><span class="math display">\[
+\begin{aligned}
+Cov(W_{h},W_{g}) &amp;= \frac{1}{2}(V(W_{h+g}) - V(W_{h}) - V(W_{g}))\\
+&amp;= \frac{1}{2}(||h+g||^{2} - ||h||^{2} - ||g||^{2})\\
+&amp;= \langle h, g \rangle\\
+\end{aligned}
+\]</span></p>
+<h2 id="q.e.d.">Q.E.D.</h2>
+<h2 id="remark">Remark:</h2>
+<ol type="1">
+<li><p>Hilbert space:</p></li>
+<li><p>Parseval’s ormula:</p></li>
+<li><p>Khintchine-Kolmogorov’s theorem:</p></li>
+<li><p>Example 6.5:</p></li>
+</ol>
+<hr />
+<h2 id="statement-1">Statement</h2>
+<p>Before we prove the existence of Brownian motion, we need to introduce a definition of Baby - Brownian motion.</p>
+<p><strong>Definition 1.3</strong> A (probabilistic) baby - Brownian motion is a Guassian process <span class="math inline">\(\mathbb{Y}_{t} = (Y_{t})_{t \in [0,1]}\)</span> on <span class="math inline">\([0,1]\)</span> with</p>
+<p><span class="math display">\[
+E Y_{t} = 0\quad \text{for}\; t \in [0,1] \qquad Cov(Y_{s}, Y_{t}) = s\; \text{for}\; 0 \leq s \leq t \leq 1
+\]</span></p>
+<p>If we have a baby - Brownian motion, we can define <span class="math inline">\(X_{t} = \frac{1}{1+t} Y_{\frac{t}{1+t}} - tY_{1},\; \text{for} t \in [0, \infty)\)</span>. Because <span class="math inline">\(\frac{t}{1+t} \in [0,1]\)</span> and this is a linear combination, then <span class="math inline">\(X_{t}\)</span> is Brownian motion.</p>
+<p><strong>Theorem</strong>: Let <span class="math inline">\((X_{n})_{n \in \mathbb{N}}\)</span> be a sequence of independent <span class="math inline">\(\mathcal{N}(0,1)\)</span> - distributed real-valued variables. Let <span class="math inline">\((e_{n})_{n \in \mathbb{N}}\)</span> be an orthonormal basis of <span class="math inline">\(L^{2}(\mathbb{R}, \mathbb{B}, \lambda)\)</span> where <span class="math inline">\(\lambda\)</span> is the restriction of the Lebesgue measure to <span class="math inline">\([0,1]\)</span>. Then</p>
+<p><span class="math display">\[
+Y_{t} = \sum^{\infty}_{i=1} \langle 1_{[0,t]}, e_{i} \rangle X_{i},\quad \text{for}\; t \in [0,1]
+\]</span></p>
+<p>is a well-defined probabilistic baby - Brownian motion.</p>
+<hr />
+<h2 id="proof-1">Proof:</h2>
+<p>Let <span class="math inline">\(\mathbb{H} = L^{2}(\mathbb{R}, \mathbb{B}, \lambda),\; \text{for}\; t \in [0,1]\)</span>, we let <span class="math inline">\(h_{t} = 1_{[0,t]}\)</span>. Then <span class="math inline">\(h_{t} \in \mathbb{H},\; h_{t} = W_{h_{t}}\)</span> where <span class="math inline">\(\mathbb{W} = (W_{h})_{h \in \mathbb{H}}\)</span> is isonormal process.</p>
+<p>As <span class="math inline">\(\mathbb{W}\)</span> is Gaussian, then <span class="math inline">\(\mathbb{Y}\)</span> is also Gaussian. we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+E Y_{t} &amp;= E W_{h_{t}} = 0\\
+Cov(Y_{s}, Y_{t}) &amp;= Cov(W_{h_{s}}, W_{h_{t}}) = \langle h_{s}, h_{t} \rangle = \int 1_{[0,s]} 1_{[0,t]} d \lambda = \int 1_{[0,s]} d \lambda = s\; (s \leq t)\\
+\end{aligned}
+\]</span></p>
+<p>so <span class="math inline">\(\mathbb{Y}\)</span> is indeed a probabilistic baby - Brownian motion.</p>
+<hr />
+<h2 id="intuition">Intuition:</h2>
+<h3 id="example-1-brownian-bridge">Example 1: Brownian bridge</h3>
+<p>Brwoian bridge is a Gaussian process <span class="math inline">\(\mathbb{Y} = (Y_{t})_{t \in [0,1]}\)</span> on <span class="math inline">\([0,1]\)</span> with mean function</p>
+<p><span class="math display">\[
+E Y_{t} = 0\quad \text{for}\; t \in [0,1]
+\]</span></p>
+<p>and covariance function</p>
+<p><span class="math display">\[
+Cov(Y_{s}, Y_{t}) = s(1-t)\quad \text{for}\; 0 \leq s \leq t \leq 1
+\]</span></p>
+<p>In addtion to <span class="math inline">\(Y_{0} =0\; a.s.\)</span>, we have that <span class="math inline">\(Y_{1} = 0\; a.s.\)</span>. For this reason a Brownian motion is often reffered to as a tied-down Brownian motion.</p>
+<hr />
+<h2 id="remark-1">Remark:</h2>
+<p>We can generate a Brownian bridge from a baby - Brownian motion, if <span class="math inline">\(\mathbb{X} = (X_{t})_{t \in [0,1]}\)</span>is a baby - Brownian motion, it is easy to see that</p>
+<p><span class="math display">\[
+Y_{t} = X_{t} - tX_{1}\quad \text{for}\; t \in [0,1]
+\]</span></p>
+<p>where <span class="math inline">\(\mathbb{Y} = (Y_{t})_{t \in [0,1]}\)</span> is a Brownian bridge.</p>
+<p>So if we have one of Brownian motion, baby-Brownian motion and Brownian bridge, we can generate the other two.</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                        <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2026 L2-T2
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Liuting Chen
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+                
+                    <transition name="fade">
+                        <div id="preview" ref="preview" v-show="previewShow">
+                            <img id="preview-content" ref="previewContent" />
+                        </div>
+                    </transition>
+                    
+        </div>
+        <script src="/%20/js/main.js"></script>
+        
+            
+
+
+
+
+                
+    </body>
+
+    </html>

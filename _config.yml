@@ -1,0 +1,71 @@
+# Hexo Configuration
+# https://hexo.io/docs/configuration.html
+
+# Site
+title: L2-T2
+subtitle: ''
+description: 'Liuting Chen'
+author: Liuting Chen
+language: en
+timezone: ''
+
+# URL
+url: https://l2-t2.github.io
+permalink: :category/:title/
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+
+# Code Highlight
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  wrap: true
+
+# Home page
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+  notes: notes
+  projects: projects
+  essays: essays
+  codes: codes
+
+# Date / Time
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: mtime
+
+# Pagination
+per_page: 10
+pagination_dir: page
+
+# Theme
+theme: particlex
+# Pandoc
+pandoc:
+  args: ['--mathjax']
