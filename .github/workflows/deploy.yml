@@ -1,0 +1,67 @@
+# Build the Hexo site and publish it to GitHub Pages.
+#
+# One-time setup: in the repository, open
+#   Settings -> Pages -> Build and deployment -> Source
+# and choose "GitHub Actions". After that, every push to the default
+# branch rebuilds and redeploys the site automatically.
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main] # change to "master" if that is your default branch
+  workflow_dispatch: # lets you trigger a manual run from the Actions tab
+
+# Permissions required by the official GitHub Pages deployment actions.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one deployment at a time; never cancel a run that is mid-deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install pandoc (required by hexo-renderer-pandoc)
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site into public/
+        run: npx hexo clean && npx hexo generate
+
+      - name: Disable Jekyll processing on the output
+        run: touch public/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

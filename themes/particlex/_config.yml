@@ -1,0 +1,23 @@
+menu:
+  Home: /
+  Learning Journals: /learning-journals/
+  Essay: /essay/
+  Project: /project/
+  Technical Notes: /technical-notes/
+  Archive: /archives/
+  About: /about/
+
+social:
+  github: https://github.com/L2-T2
+  arxiv: https://arxiv.org
+
+contact:
+  email_address: jnk758@alumni.ku.dk
+
+footer:
+  since: 2026
+  note: Structured with Hexo and shared content templates.
+
+features:
+  highlight: true
+  math: true

@@ -1,0 +1,30 @@
+<%
+  const links = Object.entries(theme.menu || {});
+  const currentPath = `/${(page.path || "").replace(/^\/|\/$/g, "")}/`;
+
+  function isActive(target) {
+    const normalized = `${target}`.replace(/\/?$/, "/");
+    if (normalized === "/") return is_home();
+    return currentPath === normalized || currentPath.startsWith(normalized);
+  }
+%>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="site-brand" href="<%- url_for('/') %>">
+      <span class="site-brand-title"><%= config.title %></span>
+      <span class="site-brand-tagline">research archive</span>
+    </a>
+
+    <button class="site-nav-toggle" type="button" aria-expanded="false" data-nav-toggle>
+      Menu
+    </button>
+
+    <div class="site-nav-links" data-nav-links>
+      <% links.forEach(([label, href]) => { %>
+      <a class="site-nav-link<% if (isActive(href)) { %> is-active<% } %>" href="<%- url_for(href) %>">
+        <%= label %>
+      </a>
+      <% }); %>
+    </div>
+  </nav>
+</header>

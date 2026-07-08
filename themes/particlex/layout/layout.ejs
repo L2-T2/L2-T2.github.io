@@ -1,0 +1,65 @@
+<%
+  let template = "page";
+  if (is_home()) template = "index";
+  else if (page.layout === "section") template = "section";
+  else if (page.layout === "entry" || is_post()) template = "entry";
+  else if (is_archive()) template = "archives";
+  else if (is_tag() || page.type === "tags") template = "tags";
+  else if (is_page()) template = "page";
+
+  let title = config.title;
+  if (!is_home() && page.title) title = `${page.title} | ${config.title}`;
+
+  const bodyClasses = ["page-shell"];
+  if (is_home()) {
+    bodyClasses.push("page-home");
+  } else if (page.layout === "entry" || is_post()) {
+    bodyClasses.push("page-entry");
+    const entryCategories = Array.isArray(page.categories)
+      ? page.categories
+      : Array.isArray(page.categories && page.categories.data)
+        ? page.categories.data
+        : [];
+    if (entryCategories[0] && entryCategories[0].name) {
+      bodyClasses.push(`page-entry-${entryCategories[0].name}`);
+    }
+  }
+%>
+<!DOCTYPE html>
+<html lang="<%- config.language || 'en' %>">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="<%- config.author %>">
+    <meta name="description" content="<%- page.description || config.description %>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <% if (is_home()) { %>
+    <link rel="stylesheet" href="<%- url_for('/homepage/homepage.css') %>">
+    <script defer src="<%- url_for('/homepage/homepage.js') %>"></script>
+    <% } else { %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="<%- url_for('/assets/site.css') %>">
+    <% } %>
+  </head>
+  <body class="<%= bodyClasses.join(' ') %>">
+    <% if (is_home()) { %>
+      <%- partial(template) %>
+    <% } else { %>
+      <div class="site-frame">
+        <%- partial("menu") %>
+        <main class="site-main">
+          <%- partial(template) %>
+        </main>
+        <%- partial("footer") %>
+      </div>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+      <script defer src="<%- url_for('/assets/site.js') %>"></script>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<%
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function normalizeCollection(collection) {
+    if (!collection) return [];
+    if (Array.isArray(collection)) return collection;
+    if (Array.isArray(collection.data)) return collection.data;
+    return [];
+  }
+
+  function sectionPosts(section) {
+    return site.posts
+      .filter((post) => normalizeCollection(post.categories).some((category) => category.name === section))
+      .sort("-date");
+  }
+
+  function stripSummary(post) {
+    const preferred = post.description || post.subtitle || post.excerpt || post.more;
+    const source = preferred || post.content || "";
+    const cleaned = strip_html(source).replace(/\s+/g, " ").trim();
+    if (!cleaned) return "";
+    return cleaned.length > 120 ? `${cleaned.slice(0, 117)}...` : cleaned;
+  }
+
+  function recentMarkup(posts, emptyLabel) {
+    if (!posts.length) {
+      return `<span class="entry-row entry-row-empty"><span class="entry-row-index">--</span><span class="entry-row-copy"><strong>${escapeHtml(emptyLabel)}</strong><small>Nothing published yet.</small></span></span>`;
+    }
+
+    return posts.slice(0, 2).map((post, index) => `
+      <a class="entry-row" href="${url_for(post.path)}">
+        <span class="entry-row-index">${String(index + 1).padStart(2, "0")}</span>
+        <span class="entry-row-copy">
+          <strong>${escapeHtml(post.title)}</strong>
+          <small>${date(post.date, "YYYY-MM-DD")}</small>
+        </span>
+      </a>
+    `).join("");
+  }
+
+  function serializeTagItems(posts, section) {
+    const items = posts.map((post) => {
+      const tags = normalizeCollection(post.tags)
+        .map((tag) => {
+          if (!tag) return null;
+          const name = typeof tag === "string" ? tag : tag.name;
+          if (!name || name.toLowerCase() === section) return null;
+          const path = typeof tag === "string" ? null : tag.path;
+          return {
+            name,
+            path: path ? url_for(path) : ""
+          };
+        })
+        .filter(Boolean);
+
+      return {
+        title: post.title,
+        date: date(post.date, "YYYY-MM-DDTHH:mm:ssZ"),
+        tags
+      };
+    });
+
+    return escapeHtml(JSON.stringify(items));
+  }
+
+  const journals = sectionPosts("learning-journals");
+  const essays = sectionPosts("essay");
+  const projects = sectionPosts("project");
+  const techNotes = sectionPosts("technical-notes");
+
+  const featuredNow = projects.filter((post) => post.featured).sort("-date").first() || site.posts.sort("-date").first();
+  let template = load_homepage_template();
+
+  const replacements = {
+    "__SITE_TITLE__": escapeHtml(config.title),
+    "__NOW_URL__": featuredNow ? url_for(featuredNow.path) : url_for("/archives/"),
+    "__NOW_IMAGE__": url_for("/homepage/assets/example.jpg"),
+    "__NOW_TITLE__": escapeHtml(featuredNow ? featuredNow.title : "Archive"),
+    "__NOW_SUMMARY__": escapeHtml(featuredNow ? stripSummary(featuredNow) : "Browse the full archive."),
+    "__ABOUT_URL__": url_for("/about/"),
+    "__GITHUB_URL__": escapeHtml((theme.social && theme.social.github) || "https://github.com/L2-T2"),
+    "__ARXIV_URL__": escapeHtml((theme.social && theme.social.arxiv) || "https://arxiv.org"),
+    "__EMAIL_ADDRESS__": escapeHtml((theme.contact && theme.contact.email_address) || ""),
+    "__JOURNALS_URL__": url_for("/learning-journals/"),
+    "__ESSAY_URL__": url_for("/essay/"),
+    "__PROJECT_URL__": url_for("/project/"),
+    "__TECHNOTES_URL__": url_for("/technical-notes/"),
+    "__JOURNALS_COUNT__": String(journals.length),
+    "__ESSAY_COUNT__": String(essays.length),
+    "__PROJECT_COUNT__": String(projects.length),
+    "__TECHNOTES_COUNT__": String(techNotes.length),
+    "__JOURNALS_RECENT__": recentMarkup(journals, "No journals yet"),
+    "__ESSAY_RECENT__": recentMarkup(essays, "No essays yet"),
+    "__PROJECT_RECENT__": recentMarkup(projects, "No projects yet"),
+    "__TECHNOTES_RECENT__": recentMarkup(techNotes, "No technical notes yet"),
+    "__JOURNALS_TAG_DATA__": serializeTagItems(journals, "learning-journals"),
+    "__ESSAY_TAG_DATA__": serializeTagItems(essays, "essay"),
+    "__PROJECT_TAG_DATA__": serializeTagItems(projects, "project"),
+    "__TECHNOTES_TAG_DATA__": serializeTagItems(techNotes, "technical-notes")
+  };
+
+  Object.entries(replacements).forEach(([token, value]) => {
+    template = template.split(token).join(value);
+  });
+%>
+<%- template %>

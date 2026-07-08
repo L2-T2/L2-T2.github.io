@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <div class="site-footer-inner panel">
+    <span>&copy; <%= theme.footer.since %> - <%= date(Date.now(), "YYYY") %> <%= config.title %></span>
+    <span><%= theme.footer.note %></span>
+    <a href="<%- url_for('/archives/') %>">Archive</a>
+  </div>
+</footer>

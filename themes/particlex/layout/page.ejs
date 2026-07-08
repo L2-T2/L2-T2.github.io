@@ -1,0 +1,15 @@
+<article class="content-page">
+  <header class="hero-panel panel">
+    <div class="hero-kicker">page</div>
+    <h1 class="hero-title"><%= page.title %></h1>
+    <% if (page.description) { %>
+    <p class="hero-summary"><%= page.description %></p>
+    <% } %>
+  </header>
+
+  <section class="entry-body panel">
+    <div class="prose">
+      <%- page.content %>
+    </div>
+  </section>
+</article>

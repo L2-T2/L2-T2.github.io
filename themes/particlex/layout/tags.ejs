@@ -1,0 +1,51 @@
+<%
+  const tagList = site.tags.toArray().sort((a, b) => b.length - a.length || a.name.localeCompare(b.name));
+  const posts = is_tag() ? page.posts.sort("-date") : [];
+
+  function summary(post) {
+    const text = post.description || post.subtitle || post.excerpt || post.content || "";
+    const cleaned = strip_html(text).replace(/\s+/g, " ").trim();
+    return cleaned.length > 180 ? `${cleaned.slice(0, 177)}...` : cleaned;
+  }
+%>
+<section class="tag-page">
+  <div class="hero-panel panel">
+    <div class="hero-kicker">tags</div>
+    <h1 class="hero-title"><%= is_tag() ? `#${page.tag}` : "Tags" %></h1>
+    <p class="hero-summary">
+      <% if (is_tag()) { %>
+      Entries tagged with <strong>#<%= page.tag %></strong>.
+      <% } else { %>
+      Browse by tag across all sections.
+      <% } %>
+    </p>
+  </div>
+
+  <div class="taxonomy-strip panel">
+    <h2 class="taxonomy-strip-title">All tags</h2>
+    <div class="taxonomy-list">
+      <% tagList.forEach((tag) => { %>
+      <a class="taxonomy-link" href="<%- url_for(tag.path) %>">#<%= tag.name %> · <%= tag.length %></a>
+      <% }) %>
+    </div>
+  </div>
+
+  <% if (is_tag()) { %>
+  <div class="card-grid">
+    <% posts.forEach((post) => { %>
+    <article class="entry-card panel">
+      <div class="entry-card-header">
+        <span class="entry-date"><%= date(post.date, "YYYY-MM-DD") %></span>
+      </div>
+      <a class="entry-title-link" href="<%- url_for(post.path) %>">
+        <h2 class="entry-title"><%= post.title %></h2>
+      </a>
+      <p class="entry-description"><%= summary(post) %></p>
+      <div class="entry-card-footer">
+        <a class="entry-action" href="<%- url_for(post.path) %>">Open entry</a>
+      </div>
+    </article>
+    <% }) %>
+  </div>
+  <% } %>
+</section>
