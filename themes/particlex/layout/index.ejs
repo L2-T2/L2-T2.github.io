@@ -15,9 +15,13 @@
     return [];
   }
 
+  const currentLanguage = page_language(page);
+  const targetLanguage = currentLanguage === "zh" ? "en" : "zh-CN";
+
   function sectionPosts(section) {
     return site.posts
-      .filter((post) => normalizeCollection(post.categories).some((category) => category.name === section))
+      .filter((post) => page_language(post) === currentLanguage
+        && normalizeCollection(post.categories).some((category) => category.name === section))
       .sort("-date");
   }
 
@@ -31,11 +35,11 @@
 
   function recentMarkup(posts, emptyLabel) {
     if (!posts.length) {
-      return `<span class="entry-row entry-row-empty"><span class="entry-row-index">--</span><span class="entry-row-copy"><strong>${escapeHtml(emptyLabel)}</strong><small>Nothing published yet.</small></span></span>`;
+      return `<span class="entry-row entry-row-empty"><span class="entry-row-index">--</span><span class="entry-row-copy"><strong>${escapeHtml(emptyLabel)}</strong><small>${escapeHtml(__("home.nothing_published"))}</small></span></span>`;
     }
 
     return posts.slice(0, 2).map((post, index) => `
-      <a class="entry-row" href="${url_for(post.path)}">
+      <a class="entry-row" href="${url_for(post.path)}" title="${escapeHtml(post.title)}">
         <span class="entry-row-index">${String(index + 1).padStart(2, "0")}</span>
         <span class="entry-row-copy">
           <strong>${escapeHtml(post.title)}</strong>
@@ -52,10 +56,10 @@
           if (!tag) return null;
           const name = typeof tag === "string" ? tag : tag.name;
           if (!name || name.toLowerCase() === section) return null;
-          const path = typeof tag === "string" ? null : tag.path;
+          const path = typeof tag === "string" ? null : localized_tag_url(tag, currentLanguage);
           return {
             name,
-            path: path ? url_for(path) : ""
+            path: path || ""
           };
         })
         .filter(Boolean);
@@ -75,31 +79,77 @@
   const projects = sectionPosts("project");
   const techNotes = sectionPosts("technical-notes");
 
-  const featuredNow = projects.filter((post) => post.featured).sort("-date").first() || site.posts.sort("-date").first();
+  const languagePosts = site.posts.filter((post) => page_language(post) === currentLanguage).sort("-date");
+  const featuredNow = projects.filter((post) => post.featured).sort("-date").first() || languagePosts.first();
   let template = load_homepage_template();
 
   const replacements = {
     "__SITE_TITLE__": escapeHtml(config.title),
-    "__NOW_URL__": featuredNow ? url_for(featuredNow.path) : url_for("/archives/"),
+    "__LANGUAGE_URL__": language_switch_url(targetLanguage),
+    "__LANGUAGE_LABEL__": escapeHtml(__("language.switch_label")),
+    "__LANGUAGE_ARIA__": escapeHtml(__("language.switch_aria")),
+    "__BROWSE_ARCHIVE__": escapeHtml(__("home.browse_archive")),
+    "__INTRODUCTION__": escapeHtml(__("home.introduction")),
+    "__DEGREE__": escapeHtml(__("home.degree")),
+    "__INTRO_BODY__": escapeHtml(__("home.intro_body")),
+    "__NOW_LABEL__": escapeHtml(__("home.now")),
+    "__NOW_URL__": featuredNow ? url_for(featuredNow.path) : localized_url("/archives/", currentLanguage),
     "__NOW_IMAGE__": url_for("/homepage/assets/example.jpg"),
-    "__NOW_TITLE__": escapeHtml(featuredNow ? featuredNow.title : "Archive"),
-    "__NOW_SUMMARY__": escapeHtml(featuredNow ? stripSummary(featuredNow) : "Browse the full archive."),
-    "__ABOUT_URL__": url_for("/about/"),
+    "__NOW_IMAGE_ALT__": escapeHtml(__("home.now_image_alt")),
+    "__NOW_TITLE__": escapeHtml(featuredNow ? featuredNow.title : __("nav.archive")),
+    "__NOW_SUMMARY__": escapeHtml(featuredNow ? stripSummary(featuredNow) : __("home.browse_full_archive")),
+    "__ABOUT_URL__": localized_url("/about/", currentLanguage),
+    "__ABOUT_LABEL__": escapeHtml(__("home.about")),
+    "__WHOAMI__": escapeHtml(__("home.whoami")),
+    "__ABOUT_DETAIL__": escapeHtml(__("home.about_detail")),
+    "__LINKS_LABEL__": escapeHtml(__("home.links")),
     "__GITHUB_URL__": escapeHtml((theme.social && theme.social.github) || "https://github.com/L2-T2"),
+    "__GITHUB_TITLE__": escapeHtml(__("home.github_title")),
+    "__GITHUB_ARIA__": escapeHtml(__("home.github_aria")),
     "__ARXIV_URL__": escapeHtml((theme.social && theme.social.arxiv) || "https://arxiv.org"),
+    "__ARXIV_TITLE__": escapeHtml(__("home.arxiv_title")),
+    "__ARXIV_ARIA__": escapeHtml(__("home.arxiv_aria")),
     "__EMAIL_ADDRESS__": escapeHtml((theme.contact && theme.contact.email_address) || ""),
-    "__JOURNALS_URL__": url_for("/learning-journals/"),
-    "__ESSAY_URL__": url_for("/essay/"),
-    "__PROJECT_URL__": url_for("/project/"),
-    "__TECHNOTES_URL__": url_for("/technical-notes/"),
+    "__EMAIL_TITLE__": escapeHtml(__("home.email_title")),
+    "__EMAIL_ARIA__": escapeHtml(__("home.email_aria")),
+    "__COPY_SUCCESS__": escapeHtml(__("home.copy_success")),
+    "__COPY_ERROR__": escapeHtml(__("home.copy_error")),
+    "__ARCHIVE_TITLE__": escapeHtml(__("home.archive_title")),
+    "__ARCHIVE_SUBTITLE__": escapeHtml(__("home.archive_subtitle")),
+    "__MOTTO__": escapeHtml(__("home.motto")),
+    "__ENTRIES_LABEL__": escapeHtml(__("home.entries")),
+    "__RECENT_ENTRIES__": escapeHtml(__("home.recent_entries")),
+    "__COMMON_TAGS__": escapeHtml(__("home.common_tags")),
+    "__LATEST_LABEL__": escapeHtml(__("home.latest")),
+    "__RANDOM_LABEL__": escapeHtml(__("home.random")),
+    "__TOP_LABEL__": escapeHtml(__("home.top")),
+    "__LATEST_TAGS_ARIA__": escapeHtml(__("home.latest_tags_aria")),
+    "__RANDOM_TAGS_ARIA__": escapeHtml(__("home.random_tags_aria")),
+    "__TOP_TAGS_ARIA__": escapeHtml(__("home.top_tags_aria")),
+    "__JOURNALS_KICKER__": escapeHtml(__("home.modules.learning_journals.kicker")),
+    "__JOURNALS_TITLE__": escapeHtml(__("home.modules.learning_journals.title")),
+    "__JOURNALS_SUMMARY__": escapeHtml(__("home.modules.learning_journals.summary")),
+    "__ESSAY_KICKER__": escapeHtml(__("home.modules.essay.kicker")),
+    "__ESSAY_TITLE__": escapeHtml(__("home.modules.essay.title")),
+    "__ESSAY_SUMMARY__": escapeHtml(__("home.modules.essay.summary")),
+    "__PROJECT_KICKER__": escapeHtml(__("home.modules.project.kicker")),
+    "__PROJECT_TITLE__": escapeHtml(__("home.modules.project.title")),
+    "__PROJECT_SUMMARY__": escapeHtml(__("home.modules.project.summary")),
+    "__TECHNOTES_KICKER__": escapeHtml(__("home.modules.technical_notes.kicker")),
+    "__TECHNOTES_TITLE__": escapeHtml(__("home.modules.technical_notes.title")),
+    "__TECHNOTES_SUMMARY__": escapeHtml(__("home.modules.technical_notes.summary")),
+    "__JOURNALS_URL__": localized_url("/learning-journals/", currentLanguage),
+    "__ESSAY_URL__": localized_url("/essay/", currentLanguage),
+    "__PROJECT_URL__": localized_url("/project/", currentLanguage),
+    "__TECHNOTES_URL__": localized_url("/technical-notes/", currentLanguage),
     "__JOURNALS_COUNT__": String(journals.length),
     "__ESSAY_COUNT__": String(essays.length),
     "__PROJECT_COUNT__": String(projects.length),
     "__TECHNOTES_COUNT__": String(techNotes.length),
-    "__JOURNALS_RECENT__": recentMarkup(journals, "No journals yet"),
-    "__ESSAY_RECENT__": recentMarkup(essays, "No essays yet"),
-    "__PROJECT_RECENT__": recentMarkup(projects, "No projects yet"),
-    "__TECHNOTES_RECENT__": recentMarkup(techNotes, "No technical notes yet"),
+    "__JOURNALS_RECENT__": recentMarkup(journals, __("home.no_journals")),
+    "__ESSAY_RECENT__": recentMarkup(essays, __("home.no_essays")),
+    "__PROJECT_RECENT__": recentMarkup(projects, __("home.no_projects")),
+    "__TECHNOTES_RECENT__": recentMarkup(techNotes, __("home.no_technical_notes")),
     "__JOURNALS_TAG_DATA__": serializeTagItems(journals, "learning-journals"),
     "__ESSAY_TAG_DATA__": serializeTagItems(essays, "essay"),
     "__PROJECT_TAG_DATA__": serializeTagItems(projects, "project"),

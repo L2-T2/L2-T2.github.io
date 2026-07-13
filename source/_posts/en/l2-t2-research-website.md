@@ -3,6 +3,9 @@ title: L2-T2 Research Website
 date: 2026-03-22
 layout: entry
 slug: l2-t2-research-website
+lang: en
+lang_path: ''
+translation_key: l2-t2-research-website
 description: A static research site organized around notes, essays, projects, and code with shared templates and a homepage-led entry flow.
 categories: [project]
 tags:

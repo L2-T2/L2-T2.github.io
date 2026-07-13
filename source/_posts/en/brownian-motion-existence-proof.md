@@ -3,6 +3,9 @@ title: Brownian Motion - Existence Proof
 date: 2026-02-06
 layout: entry
 slug: brownian-motion-existence-proof
+lang: en
+lang_path: ''
+translation_key: brownian-motion-existence-proof
 description: A construction-focused note on proving the existence of Brownian motion by reducing the problem to an isonormal Gaussian process and then passing through baby Brownian motion.
 categories: [learning-journals]
 tags:

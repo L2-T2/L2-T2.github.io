@@ -1,0 +1,135 @@
+language:
+  name: 中文
+  switch_label: EN
+  switch_aria: 阅读此页面的英文版本
+  control_label: 语言
+
+nav:
+  aria: 主导航
+  tagline: 研究档案
+  menu: 菜单
+  home: 首页
+  learning_journals: 学习札记
+  essay: 随笔
+  project: 项目
+  technical_notes: 技术笔记
+  archive: 归档
+  about: 关于
+
+home:
+  browse_archive: 浏览档案
+  introduction: 简介
+  degree: 哥本哈根大学 · 数学硕士在读
+  intro_body: 我目前在哥本哈根大学攻读数学硕士。本网站以持续更新的研究档案为结构，用于整理学习札记、随笔、研究项目与技术笔记。
+  now: 近期关注
+  now_image_alt: 当前关注内容预览
+  about: 关于
+  whoami: 我是谁
+  about_detail: 个人简介、网站结构与当前研究背景
+  links: 链接
+  github_title: GitHub 主页
+  github_aria: 在新标签页中打开 GitHub 主页
+  arxiv_title: arXiv
+  arxiv_aria: 在新标签页中打开 arXiv
+  email_title: 复制电子邮箱
+  email_aria: 将电子邮箱复制到剪贴板
+  archive_title: 研究档案
+  archive_subtitle: 学习 · 随笔 · 项目 · 笔记
+  motto: 尝试是迈向失败的第一步。
+  entries: 篇目
+  recent_entries: 最近更新
+  common_tags: 常用标签
+  latest: 最新
+  random: 随机
+  top: 热门
+  latest_tags_aria: 最新文章的标签
+  random_tags_aria: 随机标签
+  top_tags_aria: 热门标签
+  nothing_published: 暂无已发布内容。
+  no_journals: 暂无学习札记
+  no_essays: 暂无随笔
+  no_projects: 暂无项目
+  no_technical_notes: 暂无技术笔记
+  browse_full_archive: 浏览完整档案。
+  copy_success: "邮箱已复制："
+  copy_error: "复制失败："
+  modules:
+    learning_journals:
+      kicker: ◆ 学习札记模块
+      title: 学习札记
+      summary: 记录概念核对、推导过程，以及紧贴学习现场的研读笔记。
+    essay:
+      kicker: ◆ 随笔模块
+      title: 随笔
+      summary: 围绕方法论、媒介与跨学科思考展开的长篇论述。
+    project:
+      kicker: ◆ 项目模块
+      title: 项目
+      summary: 记录具有明确目标、当前进展与下一步计划的持续研究。
+    technical_notes:
+      kicker: ◆ 技术笔记模块
+      title: 技术笔记
+      summary: 整理工具、构建流程与可复现的实现细节。
+
+sections:
+  learning_journals: 学习札记
+  essays: 随笔
+  essay: 随笔
+  projects: 项目
+  project: 项目
+  technical_notes: 技术笔记
+  section: 栏目
+
+section:
+  entries: 篇内容
+  top_tags: 个常用标签
+  latest_year: 最近年份
+  common_tags: 常用标签
+  open_entry: 阅读全文
+  repository: 代码仓库
+  empty: 此栏目暂时没有内容。
+
+entry:
+  back_to: 返回
+  date: 日期
+  mode: 类型
+  explanation: 解释性文章
+  length: 篇幅
+  min_read: 分钟阅读
+  byline: 署名
+  category: 栏目
+  course: 课程
+  status: 状态
+  repository: 代码仓库
+  open_link: 打开链接
+  newer: 较新文章
+  older: 较早文章
+  annotation_open: 打开侧注
+  annotation_back: 返回侧注标记
+
+toc:
+  essay_kicker: 文章目录
+  essay_title: 目录
+  essay_aria: 随笔目录
+  page_kicker: 本页内容
+  page_title: 目录
+  page_aria: 页面目录
+
+archive:
+  kicker: 归档
+  title: 归档
+  summary: 按时间浏览全部学习札记、随笔、项目与技术内容。
+
+tags:
+  kicker: 标签
+  title: 标签
+  tagged_prefix: 带有以下标签的内容：
+  browse: 按标签浏览全部栏目内容。
+  all: 全部标签
+
+page:
+  kicker: 页面
+
+footer:
+  note: 使用 Hexo 与共享内容模板构建。
+  archive: 归档

@@ -3,6 +3,8 @@ title: Learning Journals
 date: 2026-03-22
 layout: section
 section: learning-journals
+lang: en
+translation_key: section:learning-journals
 ---
 
 This section gathers learning journals: concept checks, proof sketches, derivations, and short research memos. It is meant for material that is technically substantive but still close to the process of learning.

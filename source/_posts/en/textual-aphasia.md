@@ -8,6 +8,12 @@ layout: entry
 
 slug: textual-aphasia
 
+lang: en
+
+lang_path: ''
+
+translation_key: textual-aphasia
+
 description: From internet slang, fragmented media to model collapse, discussing the cognitive and social structural issues behind the decline of written expression.
 
 categories: [essay]

@@ -1,0 +1,135 @@
+language:
+  name: English
+  switch_label: 中文
+  switch_aria: Read this page in Chinese
+  control_label: Language
+
+nav:
+  aria: Primary navigation
+  tagline: research archive
+  menu: Menu
+  home: Home
+  learning_journals: Learning Journals
+  essay: Essay
+  project: Project
+  technical_notes: Technical Notes
+  archive: Archive
+  about: About
+
+home:
+  browse_archive: Browse archive
+  introduction: Introduction
+  degree: MSc in Mathematics · University of Copenhagen
+  intro_body: I am currently pursuing an MSc in Mathematics at the University of Copenhagen. This site is structured as a working archive for learning journals, essays, research projects, and technical notes.
+  now: Now
+  now_image_alt: Current focus preview
+  about: About
+  whoami: WhoamI
+  about_detail: Profile, site structure, and working context
+  links: Links
+  github_title: GitHub profile
+  github_aria: Open GitHub profile in a new tab
+  arxiv_title: ArXiv
+  arxiv_aria: Open ArXiv in a new tab
+  email_title: Copy email address
+  email_aria: Copy email address to clipboard
+  archive_title: Research archive
+  archive_subtitle: learning · essays · projects · notes
+  motto: Trying is the first step towards failure.
+  entries: Entries
+  recent_entries: Recent entries
+  common_tags: Common tags
+  latest: Latest
+  random: Random
+  top: Top
+  latest_tags_aria: Latest tags
+  random_tags_aria: Random tags
+  top_tags_aria: Top tags
+  nothing_published: Nothing published yet.
+  no_journals: No journals yet
+  no_essays: No essays yet
+  no_projects: No projects yet
+  no_technical_notes: No technical notes yet
+  browse_full_archive: Browse the full archive.
+  copy_success: "Email copied:"
+  copy_error: "Copy failed:"
+  modules:
+    learning_journals:
+      kicker: ◆ Learning Journals module
+      title: Learning Journals
+      summary: Concept checks, derivations, and study records close to the process of learning.
+    essay:
+      kicker: ◆ Essay module
+      title: Essay
+      summary: Long-form arguments on methodology, media, and interdisciplinary thinking.
+    project:
+      kicker: ◆ Project module
+      title: Project
+      summary: Sustained investigations with explicit goals, current state, and next steps.
+    technical_notes:
+      kicker: ◆ Technical Notes module
+      title: Technical Notes
+      summary: Tooling, build pipelines, and reproducible implementation details.
+
+sections:
+  learning_journals: Learning Journals
+  essays: Essays
+  essay: Essay
+  projects: Projects
+  project: Project
+  technical_notes: Technical Notes
+  section: Section
+
+section:
+  entries: entries
+  top_tags: top tags
+  latest_year: latest year
+  common_tags: Common tags
+  open_entry: Open entry
+  repository: Repository
+  empty: No entries in this section yet.
+
+entry:
+  back_to: Back to
+  date: Date
+  mode: Mode
+  explanation: Explanation
+  length: Length
+  min_read: min read
+  byline: Byline
+  category: Category
+  course: Course
+  status: Status
+  repository: Repository
+  open_link: Open link
+  newer: Newer entry
+  older: Older entry
+  annotation_open: Open annotation
+  annotation_back: Back to annotation reference
+
+toc:
+  essay_kicker: Table of Contents
+  essay_title: TOC
+  essay_aria: Essay table of contents
+  page_kicker: On this page
+  page_title: Contents
+  page_aria: Table of contents
+
+archive:
+  kicker: archive
+  title: Archive
+  summary: A chronological overview of all published entries across notes, essays, projects, and code.
+
+tags:
+  kicker: tags
+  title: Tags
+  tagged_prefix: Entries tagged with
+  browse: Browse by tag across all sections.
+  all: All tags
+
+page:
+  kicker: page
+
+footer:
+  note: Structured with Hexo and shared content templates.
+  archive: Archive

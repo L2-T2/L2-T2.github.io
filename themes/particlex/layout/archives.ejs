@@ -1,11 +1,21 @@
 <%
-  const posts = site.posts.sort("-date");
+  const currentLanguage = page_language(page);
+  const posts = site.posts.filter((post) => page_language(post) === currentLanguage).sort("-date");
+
+  function sectionLabel(section) {
+    return {
+      "learning-journals": __("sections.learning_journals"),
+      essay: __("sections.essay"),
+      project: __("sections.project"),
+      "technical-notes": __("sections.technical_notes")
+    }[section] || section;
+  }
 %>
 <section class="archive-page">
   <div class="hero-panel panel">
-    <div class="hero-kicker">archive</div>
-    <h1 class="hero-title">Archive</h1>
-    <p class="hero-summary">A chronological overview of all published entries across notes, essays, projects, and code.</p>
+    <div class="hero-kicker"><%= __("archive.kicker") %></div>
+    <h1 class="hero-title"><%= __("archive.title") %></h1>
+    <p class="hero-summary"><%= __("archive.summary") %></p>
   </div>
 
   <div class="card-grid">
@@ -20,11 +30,11 @@
       <p class="entry-description"><%= post.description || post.subtitle || strip_html(post.excerpt || post.content).slice(0, 180) %></p>
       <div class="entry-meta-row">
         <% if (post.categories && post.categories.data.length) { %>
-        <span class="meta-chip"><%= post.categories.data[0].name %></span>
+        <span class="meta-chip"><%= sectionLabel(post.categories.data[0].name) %></span>
         <% } %>
       </div>
       <div class="entry-card-footer">
-        <a class="entry-action" href="<%- url_for(post.path) %>">Open entry</a>
+        <a class="entry-action" href="<%- url_for(post.path) %>"><%= __("section.open_entry") %></a>
       </div>
     </article>
     <% }) %>

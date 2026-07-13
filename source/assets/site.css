@@ -87,6 +87,7 @@ img {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-left: auto;
 }
 
 .site-nav-link {
@@ -111,6 +112,51 @@ img {
   border-radius: 999px;
   padding: 0.55rem 0.8rem;
   font: inherit;
+}
+
+.site-nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+}
+
+.site-language-switch {
+  width: 4.6rem;
+  min-height: 2.4rem;
+  padding: 0.45rem 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(123, 142, 98, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 250, 243, 0.72);
+  color: var(--site-accent-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.site-language-switch:hover,
+.site-language-switch:focus-visible {
+  border-color: var(--site-line-strong);
+  background: rgba(142, 163, 109, 0.14);
+  color: var(--site-text);
+}
+
+.site-language-icon {
+  display: inline-grid;
+  width: 1.15rem;
+  height: 1.15rem;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(142, 163, 109, 0.18);
+  font-size: 0.68rem;
+  font-weight: 700;
 }
 
 .site-main {
@@ -734,6 +780,7 @@ body.page-entry-essay .essay-note-marker a {
   vertical-align: super;
   font-size: 0.76em;
   line-height: 0;
+  scroll-margin-top: 7rem;
 }
 
 .essay-note-marker a {
@@ -935,10 +982,9 @@ body.page-entry-essay .entry-nav-card:hover .entry-nav-title {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1020px) {
   .site-nav {
     position: relative;
-    align-items: flex-start;
   }
 
   .site-nav-toggle {
@@ -967,6 +1013,9 @@ body.page-entry-essay .entry-nav-card:hover .entry-nav-title {
   .site-nav-link {
     border-radius: 12px;
   }
+}
+
+@media (max-width: 860px) {
 
   .site-main {
     padding-top: 1.2rem;
@@ -1049,6 +1098,17 @@ body.page-entry-learning-journals {
 
 body.page-entry-learning-journals .site-main {
   width: min(64rem, calc(100vw - 2rem));
+}
+
+body.page-entry-learning-journals .entry-page-math {
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+
+body.page-entry-learning-journals .entry-page-math > *,
+.entry-reading-layout-math > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* two-column reading layout: sticky contents + document body */
@@ -1170,6 +1230,7 @@ body.page-entry-learning-journals .site-main {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.55);
   overflow: hidden;
+  scroll-margin-top: 6rem;
 }
 
 .prose-math .mj-env-head {
@@ -1228,6 +1289,27 @@ body.page-entry-learning-journals .site-main {
   --mj-accent: #5fa093; --mj-accent-dark: #3d7369; --mj-tint: rgba(79, 138, 128, 0.1);
 }
 
+/* Supporting commentary stays visually lighter than formal statements/proofs. */
+.prose-math .mj-env-remark,
+.prose-math .mj-env-intuition {
+  border-width: 0 0 0 3px;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.prose-math .mj-env-remark .mj-env-head,
+.prose-math .mj-env-intuition .mj-env-head {
+  padding: 0.25rem 0 0.35rem 1rem;
+  border-bottom: 0;
+  background: transparent;
+}
+
+.prose-math .mj-env-remark .mj-env-body,
+.prose-math .mj-env-intuition .mj-env-body {
+  padding: 0.35rem 0 0.1rem 1rem;
+}
+
 /* "Definition 1.1"-style lead-in emphasised inside a box */
 .prose-math .mj-env-body > p > strong:first-child {
   color: var(--mj-accent-dark);
@@ -1267,6 +1349,7 @@ body.page-entry-learning-journals .site-main {
 
   .entry-toc-math {
     position: static;
+    width: 100%;
     max-height: none;
     overflow: visible;
     padding: 1rem 1.2rem;
@@ -1278,6 +1361,10 @@ body.page-entry-learning-journals .site-main {
   .entry-toc-math .entry-toc-list {
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
     gap: 0.15rem 1rem;
+  }
+
+  .entry-body-math {
+    width: 100%;
   }
 }
 

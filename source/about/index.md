@@ -2,6 +2,8 @@
 title: About
 date: 2026-03-22
 layout: page
+lang: en
+translation_key: about
 ---
 
 ## Profile

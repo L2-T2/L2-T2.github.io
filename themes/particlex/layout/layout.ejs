@@ -1,17 +1,20 @@
 <%
+  const isHomePage = is_home() || page.layout === "home";
+  const documentLanguage = page_language_code(page);
+
   let template = "page";
-  if (is_home()) template = "index";
+  if (isHomePage) template = "index";
   else if (page.layout === "section") template = "section";
   else if (page.layout === "entry" || is_post()) template = "entry";
-  else if (is_archive()) template = "archives";
+  else if (page.layout === "archives" || is_archive()) template = "archives";
   else if (is_tag() || page.type === "tags") template = "tags";
   else if (is_page()) template = "page";
 
   let title = config.title;
-  if (!is_home() && page.title) title = `${page.title} | ${config.title}`;
+  if (!isHomePage && page.title) title = `${page.title} | ${config.title}`;
 
   const bodyClasses = ["page-shell"];
-  if (is_home()) {
+  if (isHomePage) {
     bodyClasses.push("page-home");
   } else if (page.layout === "entry" || is_post()) {
     bodyClasses.push("page-entry");
@@ -26,17 +29,20 @@
   }
 %>
 <!DOCTYPE html>
-<html lang="<%- config.language || 'en' %>">
+<html lang="<%- documentLanguage %>">
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="<%- config.author %>">
     <meta name="description" content="<%- page.description || config.description %>">
+    <link rel="alternate" hreflang="en" href="<%- language_switch_url('en') %>">
+    <link rel="alternate" hreflang="zh-CN" href="<%- language_switch_url('zh-CN') %>">
+    <link rel="alternate" hreflang="x-default" href="<%- url_for('/') %>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <% if (is_home()) { %>
+    <% if (isHomePage) { %>
     <link rel="stylesheet" href="<%- url_for('/homepage/homepage.css') %>">
     <script defer src="<%- url_for('/homepage/homepage.js') %>"></script>
     <% } else { %>
@@ -46,7 +52,7 @@
     <% } %>
   </head>
   <body class="<%= bodyClasses.join(' ') %>">
-    <% if (is_home()) { %>
+    <% if (isHomePage) { %>
       <%- partial(template) %>
     <% } else { %>
       <div class="site-frame">

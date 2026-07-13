@@ -6,7 +6,7 @@
 
 您当前的工作区是 Hexo 博客的**源码 (Source)**。
 
-*   **请修改这里**：`source/` 目录下的 Markdown 文件 (`.md`)、`homepage/homepage.html` 和 `_config.yml` 配置文件。
+*   **请修改这里**：`source/` 目录下的 Markdown 文件 (`.md`)、`homepage/homepage.html`、`themes/particlex/languages/` 语言文件和 `_config.yml` 配置文件。
 *   **不要修改这里**：`public/` 目录。
     *   `public` 文件夹是 Hexo 根据源码自动生成的静态网页 (HTML/CSS/JS)。
     *   每次运行 `npm run build` 或 `npx hexo generate`，`public` 都会被覆盖。如果您直接修改 `public` 中的文件，**下次生成时修改会丢失**。
@@ -21,13 +21,16 @@
 ├── .gitignore          # 忽略 node_modules/、public/、db.json 等
 ├── homepage/           # [核心] 首页模板单一事实来源
 ├── source/             # [核心] 存放网站内容源码
-│   ├── _posts/             #     -> learning-journals / essay / project / technical-notes 条目
+│   ├── _posts/
+│   │   ├── en/             #     -> 英文文章源码（网址保持在根路径）
+│   │   └── zh/             #     -> 中文文章源码（网址统一带 /zh/）
 │   ├── about/              #     -> "关于" 页面
 │   ├── learning-journals/  #     -> Learning Journals 列表页
 │   ├── essay/              #     -> Essay 列表页
 │   ├── project/            #     -> Project 列表页
 │   ├── technical-notes/    #     -> Technical Notes 列表页
-│   └── assets/         #     -> 公共 CSS / JS
+│   ├── zh/                 #     -> 中文首页、栏目、About、Archive 与 Tags 页面
+│   └── assets/             #     -> 公共 CSS / JS
 ├── themes/             # 布局模板文件夹
 │   └── particlex/      #     -> 当前只承担 Hexo layout 层
 ├── public/             # [自动生成] 最终用于发布的静态网页文件
@@ -39,22 +42,42 @@
 ### 第一步：创建或修改内容
 
 #### 修改现有文章
-1.  进入 `source/_posts/` 目录。
+1.  英文文章进入 `source/_posts/en/`，中文文章进入 `source/_posts/zh/`。
 2.  使用 Markdown 编辑器打开对应的 `.md` 文件。
 3.  编辑内容。注意文件顶部的 `---` 包裹区域是**Front-matter (属性区)**，用于设置标题、日期、标签等。
 
 #### 新建文章
-在终端运行：
+每篇文章使用相同的稳定英文 slug，并分别创建英文与中文文件。以下以 Essay 为例：
+
 ```bash
-npx hexo new "文章标题"
+npx hexo new essay "English title" --locale_dir en --slug stable-slug
+npx hexo new essay-zh "中文标题" --locale_dir zh --slug stable-slug
 ```
-这将在 `source/_posts/` 下生成一个新的 `.md` 文件。
+
+这会分别生成：
+
+```text
+source/_posts/en/stable-slug.md
+source/_posts/zh/stable-slug.md
+```
+
+两份文件中的 `translation_key` 和 `slug` 必须保持相同；`title`、`description`、`tags` 与正文可以分别使用英文和中文。其他内容类型对应：
+
+| 内容类型 | 英文模板 | 中文模板 |
+| --- | --- | --- |
+| 学习札记 | `learning-journals` | `learning-journals-zh` |
+| 随笔 | `essay` | `essay-zh` |
+| 项目 | `project` | `project-zh` |
+| 技术笔记 | `technical-notes` | `technical-notes-zh` |
 
 #### 修改页面 (如 About)
-编辑 `source/about/index.md` 文件。
+英文 About 编辑 `source/about/index.md`，中文 About 编辑 `source/zh/about/index.md`。其他栏目页也遵循同样的根路径与 `source/zh/` 配对结构。
 
 #### 修改首页
-编辑 `homepage/homepage.html` 文件。
+首页排版编辑 `homepage/homepage.html`；中英文首页共用这一份结构，具体文案分别位于：
+
+- `themes/particlex/languages/en.yml`
+- `themes/particlex/languages/zh-CN.yml`
 
 - 首页的结构、文案、区块顺序、首页专属样式都以这里为准。
 - 不要直接改 `public/index.html`。
@@ -68,7 +91,7 @@ npm run server
 # 或者
 npx hexo server
 ```
-然后浏览器访问 `http://localhost:4000`。
+然后浏览器访问英文首页 `http://localhost:4000/` 或中文首页 `http://localhost:4000/zh/`。
 *   按 `Ctrl + C` 停止服务器。
 
 > 如果直接运行 `hexo server` 出现 `command not found: hexo`，说明没有安装全局 Hexo CLI。此项目已把 Hexo 安装在本地依赖中，请使用 `npm run server` 或 `npx hexo server`。
@@ -107,7 +130,9 @@ git push origin main
 ```yaml
 title: L2-T2           # 网站标题
 author: Liuting Chen   # 作者名（与 _config.yml 保持一致）
-language: en           # 语言 (zh-CN 为中文)
+language:
+  - en
+  - zh-CN
 ```
 
 ### 修改导航或模板逻辑

@@ -4,13 +4,13 @@ date: {{ date }}
 layout: entry
 categories: [learning-journals]
 slug: {{ slug }}
-lang: en
-lang_path: ''
+lang: zh-CN
+lang_path: zh/
 translation_key: {{ slug }}
 description:
 tags:
-  - 
-course: 
+  -
+course:
 ---
 
-<!-- Write your note content here -->
+<!-- 在这里撰写中文学习札记 -->

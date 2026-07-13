@@ -21,11 +21,11 @@
 
   function sectionLabel(section) {
     return {
-      "learning-journals": "Learning Journals",
-      essay: "Essay",
-      project: "Project",
-      "technical-notes": "Technical Notes"
-    }[section] || "Section";
+      "learning-journals": __("sections.learning_journals"),
+      essay: __("sections.essay"),
+      project: __("sections.project"),
+      "technical-notes": __("sections.technical_notes")
+    }[section] || __("sections.section");
   }
 
   function readingMinutes(html) {
@@ -38,11 +38,13 @@
 
   const categories = normalizeCollection(page.categories);
   const tags = normalizeCollection(page.tags);
+  const currentLanguage = page_language(page);
   const section = categories[0] ? categories[0].name : "learning-journals";
-  const sectionPath = `/${section}/`;
+  const sectionPath = localized_url(`/${section}/`, currentLanguage);
 
   const siblings = site.posts
-    .filter((post) => normalizeCollection(post.categories).some((category) => category.name === section))
+    .filter((post) => page_language(post) === currentLanguage
+      && normalizeCollection(post.categories).some((category) => category.name === section))
     .sort("-date")
     .toArray();
 
@@ -70,25 +72,34 @@
   function extractEssayNotes(html) {
     const notes = [];
     const contentWithoutNotes = html.replace(
-      /<blockquote>\s*<p>\[!NOTE\|([^|\]]+)\|#([^\]]+)\]\s*([\s\S]*?)<\/p>\s*<\/blockquote>/g,
+      /<blockquote>\s*<p>\[!NOTE\|([^|\]]+)\|#([^\]]+)\]\s*<\/p>\s*(?:<\/blockquote>\s*<blockquote>\s*)?([\s\S]*?)\s*<\/blockquote>/g,
       (_, title, anchor, body) => {
+        const cleanBody = String(body || "").trim();
+        if (!strip_html(cleanBody).replace(/\s+/g, " ").trim()) return "";
+
+        const index = notes.length + 1;
+        const placeholder = `<!--essay-note-placeholder-${index}-->`;
         notes.push({
-          index: notes.length + 1,
+          index,
           title: title.trim(),
           anchor: anchor.trim(),
-          body: body.trim()
+          body: cleanBody,
+          placeholder
         });
-        return "";
+        return placeholder;
       }
     );
 
     let contentWithMarkers = contentWithoutNotes;
     notes.forEach((note) => {
-      const marker = `<sup class="essay-note-marker" id="essay-note-ref-${note.index}" data-note-index="${note.index}"><a href="#essay-note-${note.index}" aria-label="Open annotation ${note.index}">${note.index}</a></sup>`;
+      const marker = `<sup class="essay-note-marker" id="essay-note-ref-${note.index}" data-note-index="${note.index}"><a href="#essay-note-${note.index}" aria-label="${escapeHtml(__("entry.annotation_open"))} ${note.index}">${note.index}</a></sup>`;
       const targetPattern = new RegExp(`(<([a-zA-Z0-9]+)([^>]*)\\sid="${escapeRegExp(note.anchor)}"([^>]*)>[\\s\\S]*?<\\/\\2>)`);
 
       if (targetPattern.test(contentWithMarkers)) {
         contentWithMarkers = contentWithMarkers.replace(targetPattern, `$1${marker}`);
+        contentWithMarkers = contentWithMarkers.replace(note.placeholder, "");
+      } else {
+        contentWithMarkers = contentWithMarkers.replace(note.placeholder, marker);
       }
     });
 
@@ -111,6 +122,24 @@
     const known = ["statement", "definition", "theorem", "lemma", "proposition", "corollary", "proof", "remark", "intuition", "example", "construction"];
     for (let i = 0; i < known.length; i += 1) {
       if (k.indexOf(known[i]) === 0) return known[i];
+    }
+    const chineseKinds = {
+      "陈述": "statement",
+      "定义": "definition",
+      "定理": "theorem",
+      "引理": "lemma",
+      "命题": "proposition",
+      "推论": "corollary",
+      "证明": "proof",
+      "备注": "remark",
+      "注记": "remark",
+      "直觉": "intuition",
+      "例子": "example",
+      "示例": "example",
+      "构造": "construction"
+    };
+    for (const [label, slug] of Object.entries(chineseKinds)) {
+      if (k.startsWith(label)) return slug;
     }
     return "note";
   }
@@ -160,8 +189,8 @@
 %>
 <article class="entry-page<% if (isEssay) { %> entry-page-essay<% } else if (isMathDoc) { %> entry-page-math<% } %>">
   <header class="entry-hero<% if (isEssay) { %> entry-doc-hero<% } else { %> panel<% } %>">
-    <a class="entry-back" href="<%- url_for(sectionPath) %>">&larr; Back to <%= sectionLabel(section) %></a>
-    <div class="hero-kicker"><%= section %></div>
+    <a class="entry-back" href="<%- sectionPath %>">&larr; <%= __("entry.back_to") %> <%= sectionLabel(section) %></a>
+    <div class="hero-kicker"><%= sectionLabel(section) %></div>
     <h1 class="entry-hero-title"><%= page.title %></h1>
     <% if (page.description || page.subtitle) { %>
     <p class="entry-hero-summary"><%= page.description || page.subtitle %></p>
@@ -169,20 +198,20 @@
     <% if (isEssay) { %>
     <dl class="entry-meta-list">
       <div>
-        <dt>Date</dt>
+        <dt><%= __("entry.date") %></dt>
         <dd><%= date(page.date, "YYYY-MM-DD") %></dd>
       </div>
       <div>
-        <dt>Mode</dt>
-        <dd>Explanation</dd>
+        <dt><%= __("entry.mode") %></dt>
+        <dd><%= __("entry.explanation") %></dd>
       </div>
       <div>
-        <dt>Length</dt>
-        <dd><%= readTime %> min read</dd>
+        <dt><%= __("entry.length") %></dt>
+        <dd><%= readTime %> <%= __("entry.min_read") %></dd>
       </div>
       <% if (page.byline) { %>
       <div>
-        <dt>Byline</dt>
+        <dt><%= __("entry.byline") %></dt>
         <dd><%= page.byline %></dd>
       </div>
       <% } %>
@@ -190,29 +219,29 @@
     <% } else { %>
     <div class="entry-info-grid">
       <div class="entry-info-card">
-        <span class="entry-info-label">Date</span>
+        <span class="entry-info-label"><%= __("entry.date") %></span>
         <span class="entry-info-value"><%= date(page.date, "YYYY-MM-DD") %></span>
       </div>
       <div class="entry-info-card">
-        <span class="entry-info-label">Category</span>
+        <span class="entry-info-label"><%= __("entry.category") %></span>
         <span class="entry-info-value"><%= sectionLabel(section) %></span>
       </div>
       <% if (page.course) { %>
       <div class="entry-info-card">
-        <span class="entry-info-label">Course</span>
+        <span class="entry-info-label"><%= __("entry.course") %></span>
         <span class="entry-info-value"><%= page.course %></span>
       </div>
       <% } %>
       <% if (page.status) { %>
       <div class="entry-info-card">
-        <span class="entry-info-label">Status</span>
+        <span class="entry-info-label"><%= __("entry.status") %></span>
         <span class="entry-info-value"><%= page.status %></span>
       </div>
       <% } %>
       <% if (page.repo) { %>
       <div class="entry-info-card">
-        <span class="entry-info-label">Repository</span>
-        <span class="entry-info-value"><a href="<%= page.repo %>" target="_blank" rel="noopener">Open link</a></span>
+        <span class="entry-info-label"><%= __("entry.repository") %></span>
+        <span class="entry-info-value"><a href="<%= page.repo %>" target="_blank" rel="noopener"><%= __("entry.open_link") %></a></span>
       </div>
       <% } %>
     </div>
@@ -220,7 +249,7 @@
     <% if (tags.length) { %>
     <div class="taxonomy-list" style="margin-top: 1rem;">
       <% tags.forEach((tag) => { %>
-      <a class="taxonomy-link" href="<%- url_for(tag.path) %>">#<%= tag.name %></a>
+      <a class="taxonomy-link" href="<%- localized_tag_url(tag, currentLanguage) %>">#<%= tag.name %></a>
       <% }) %>
     </div>
     <% } %>
@@ -229,9 +258,9 @@
   <section class="entry-reading-layout<% if (isEssay) { %> entry-reading-layout-essay<% } else if (isMathDoc) { %> entry-reading-layout-math<% } %>">
     <% if (isEssay && tocItems.length) { %>
     <aside class="entry-toc">
-      <div class="entry-toc-kicker">Table of Contents</div>
-      <div class="entry-toc-title">目录 / TOC</div>
-      <nav class="entry-toc-nav" aria-label="Essay table of contents">
+      <div class="entry-toc-kicker"><%= __("toc.essay_kicker") %></div>
+      <div class="entry-toc-title"><%= __("toc.essay_title") %></div>
+      <nav class="entry-toc-nav" aria-label="<%= __('toc.essay_aria') %>">
         <ol class="entry-toc-list">
           <% tocItems.forEach((item) => { %>
           <li class="entry-toc-item entry-toc-level-<%= item.level %>">
@@ -245,9 +274,9 @@
 
     <% if (isMathDoc && mathTocItems.length) { %>
     <aside class="entry-toc entry-toc-math">
-      <div class="entry-toc-kicker">On this page</div>
-      <div class="entry-toc-title">Contents</div>
-      <nav class="entry-toc-nav" aria-label="Table of contents">
+      <div class="entry-toc-kicker"><%= __("toc.page_kicker") %></div>
+      <div class="entry-toc-title"><%= __("toc.page_title") %></div>
+      <nav class="entry-toc-nav" aria-label="<%= __('toc.page_aria') %>">
         <ol class="entry-toc-list">
           <% mathTocItems.forEach((item) => { %>
           <li class="entry-toc-item mj-toc-item mj-toc-<%= item.slug %>">
@@ -269,11 +298,11 @@
     </section>
 
     <% if (isEssay && essayNotes.length) { %>
-    <aside class="entry-annotations" aria-label="Essay annotations" data-annotation-rail>
+    <aside class="entry-annotations" aria-label="<%= __('entry.annotation_open') %>" data-annotation-rail>
       <% essayNotes.forEach((note) => { %>
       <section class="essay-annotation" id="essay-note-<%= note.index %>" data-note-index="<%= note.index %>">
         <div class="essay-annotation-head">
-          <a class="essay-annotation-index" href="#essay-note-ref-<%= note.index %>" aria-label="Back to annotation reference"><%= note.index %></a>
+          <a class="essay-annotation-index" href="#essay-note-ref-<%= note.index %>" aria-label="<%= __('entry.annotation_back') %>"><%= note.index %></a>
           <div class="essay-annotation-title"><%= note.title %></div>
         </div>
         <div class="essay-annotation-body"><%- note.body %></div>
@@ -287,7 +316,7 @@
   <nav class="entry-navigation<% if (isEssay) { %> entry-navigation-doc<% } %>">
     <% if (newer) { %>
     <a class="entry-nav-card panel" href="<%- url_for(newer.path) %>">
-      <span class="entry-nav-label">Newer entry</span>
+      <span class="entry-nav-label"><%= __("entry.newer") %></span>
       <span class="entry-nav-title"><%= newer.title %></span>
     </a>
     <% } else { %>
@@ -296,7 +325,7 @@
 
     <% if (older) { %>
     <a class="entry-nav-card panel" href="<%- url_for(older.path) %>">
-      <span class="entry-nav-label">Older entry</span>
+      <span class="entry-nav-label"><%= __("entry.older") %></span>
       <span class="entry-nav-title"><%= older.title %></span>
     </a>
     <% } else { %>

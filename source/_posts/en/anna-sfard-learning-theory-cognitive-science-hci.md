@@ -8,6 +8,12 @@ layout: entry
 
 slug: anna-sfard-learning-theory-cognitive-science-hci
 
+lang: en
+
+lang_path: ''
+
+translation_key: anna-sfard-learning-theory-cognitive-science-hci
+
 description: From reification, learning metaphors to commognition, discussing how Sfard redefines "understanding" and how this theory enters the analytical frameworks of cognitive science and HCI.
 
 categories: [essay]

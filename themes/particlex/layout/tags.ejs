@@ -1,36 +1,64 @@
 <%
-  const tagList = site.tags.toArray().sort((a, b) => b.length - a.length || a.name.localeCompare(b.name));
-  const posts = is_tag() ? page.posts.sort("-date") : [];
+  function normalizeCollection(collection) {
+    if (!collection) return [];
+    if (Array.isArray(collection)) return collection;
+    if (typeof collection.toArray === "function") return collection.toArray();
+    if (Array.isArray(collection.data)) return collection.data;
+    return [];
+  }
 
   function summary(post) {
     const text = post.description || post.subtitle || post.excerpt || post.content || "";
     const cleaned = strip_html(text).replace(/\s+/g, " ").trim();
     return cleaned.length > 180 ? `${cleaned.slice(0, 177)}...` : cleaned;
   }
+
+  const currentLanguage = page_language(page);
+  const languagePosts = site.posts
+    .filter((post) => page_language(post) === currentLanguage)
+    .sort("-date");
+  const isTagPage = Boolean(page.tag) || is_tag();
+  const sourcePosts = normalizeCollection(page.posts);
+  const posts = (sourcePosts.length ? sourcePosts : normalizeCollection(languagePosts))
+    .filter((post) => page_language(post) === currentLanguage)
+    .filter((post) => !page.tag || normalizeCollection(post.tags).some((tag) => tag.name === page.tag))
+    .sort((left, right) => right.date - left.date);
+
+  const tagMap = new Map();
+  normalizeCollection(languagePosts).forEach((post) => {
+    normalizeCollection(post.tags).forEach((tag) => {
+      if (!tag || !tag.name) return;
+      const current = tagMap.get(tag.name) || { count: 0, tag };
+      current.count += 1;
+      tagMap.set(tag.name, current);
+    });
+  });
+  const tagList = Array.from(tagMap.entries())
+    .sort((left, right) => right[1].count - left[1].count || left[0].localeCompare(right[0]));
 %>
 <section class="tag-page">
   <div class="hero-panel panel">
-    <div class="hero-kicker">tags</div>
-    <h1 class="hero-title"><%= is_tag() ? `#${page.tag}` : "Tags" %></h1>
+    <div class="hero-kicker"><%= __("tags.kicker") %></div>
+    <h1 class="hero-title"><%= isTagPage ? `#${page.tag}` : __("tags.title") %></h1>
     <p class="hero-summary">
-      <% if (is_tag()) { %>
-      Entries tagged with <strong>#<%= page.tag %></strong>.
+      <% if (isTagPage) { %>
+      <%= __("tags.tagged_prefix") %> <strong>#<%= page.tag %></strong>
       <% } else { %>
-      Browse by tag across all sections.
+      <%= __("tags.browse") %>
       <% } %>
     </p>
   </div>
 
   <div class="taxonomy-strip panel">
-    <h2 class="taxonomy-strip-title">All tags</h2>
+    <h2 class="taxonomy-strip-title"><%= __("tags.all") %></h2>
     <div class="taxonomy-list">
-      <% tagList.forEach((tag) => { %>
-      <a class="taxonomy-link" href="<%- url_for(tag.path) %>">#<%= tag.name %> · <%= tag.length %></a>
-      <% }) %>
+      <% tagList.forEach(([name, data]) => { %>
+      <a class="taxonomy-link" href="<%- localized_tag_url(data.tag, currentLanguage) %>">#<%= name %> · <%= data.count %></a>
+      <% }); %>
     </div>
   </div>
 
-  <% if (is_tag()) { %>
+  <% if (isTagPage) { %>
   <div class="card-grid">
     <% posts.forEach((post) => { %>
     <article class="entry-card panel">
@@ -42,10 +70,10 @@
       </a>
       <p class="entry-description"><%= summary(post) %></p>
       <div class="entry-card-footer">
-        <a class="entry-action" href="<%- url_for(post.path) %>">Open entry</a>
+        <a class="entry-action" href="<%- url_for(post.path) %>"><%= __("section.open_entry") %></a>
       </div>
     </article>
-    <% }) %>
+    <% }); %>
   </div>
   <% } %>
 </section>

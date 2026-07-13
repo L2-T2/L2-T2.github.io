@@ -18,6 +18,10 @@
     <aside class="left">
       <div class="contain">
         <div class="identity-block">
+          <a class="home-language-switch" href="__LANGUAGE_URL__" aria-label="__LANGUAGE_ARIA__" title="__LANGUAGE_ARIA__">
+            <span aria-hidden="true">文/A</span>
+            <strong>__LANGUAGE_LABEL__</strong>
+          </a>
           <div class="identity-top">__SITE_TITLE__</div>
           <div class="identity-bottom">
             <span class="identity-dot"></span>
@@ -25,20 +29,19 @@
             <span class="identity-dot identity-dot-light"></span>
           </div>
           <div class="identity-bar"></div>
+          <a class="archive-jump" href="#archive-content">__BROWSE_ARCHIVE__ <span aria-hidden="true">↓</span></a>
         </div>
 
         <section class="intro-block">
           <div class="intro-window">
             <div class="intro-header">
-              <div class="intro-title">Introduction</div>
-              <div class="intro-subtitle">MSc in Mathematics · University of Copenhagen</div>
+              <div class="intro-title">__INTRODUCTION__</div>
+              <div class="intro-subtitle">__DEGREE__</div>
             </div>
             <div class="intro-scroll">
               <div class="intro-body">
                 <p>
-                  I am currently pursuing an MSc in Mathematics at the University of Copenhagen.
-                  This site is structured as a working archive for learning journals, essays, research projects,
-                  and technical notes.
+                  __INTRO_BODY__
                 </p>
               </div>
             </div>
@@ -55,11 +58,11 @@
               <div class="frame-corner corner-rb"></div>
               <div class="frame-head">
                 <div class="frame-line"></div>
-                <div class="frame-title">Now</div>
+                <div class="frame-title">__NOW_LABEL__</div>
                 <div class="frame-line"></div>
               </div>
               <div class="frame-image-wrap">
-                <img class="frame-image" src="__NOW_IMAGE__" alt="Current focus preview">
+                <img class="frame-image" src="__NOW_IMAGE__" alt="__NOW_IMAGE_ALT__">
               </div>
               <div class="frame-copy">
                 <strong>__NOW_TITLE__</strong>
@@ -72,18 +75,18 @@
           <div class="utility-panels">
             <a class="about-panel" href="__ABOUT_URL__">
               <div class="about-copy">
-                <div class="about-eyebrow">About</div>
-                <div class="about-title">WhoamI</div>
+                <div class="about-eyebrow">__ABOUT_LABEL__</div>
+                <div class="about-title">__WHOAMI__</div>
               </div>
-              <div class="about-detail">Profile, site structure, and working context</div>
+              <div class="about-detail">__ABOUT_DETAIL__</div>
             </a>
 
             <div class="links-box">
-              <div class="links-title">Links</div>
+              <div class="links-title">__LINKS_LABEL__</div>
               <div class="links-grid">
-                <a class="link-btn text-link-btn" href="__GITHUB_URL__" target="_blank" rel="noopener noreferrer" title="GitHub profile" aria-label="Open GitHub profile in a new tab">GITHUB</a>
-                <a class="link-btn text-link-btn" href="__ARXIV_URL__" target="_blank" rel="noopener noreferrer" title="ArXiv" aria-label="Open ArXiv in a new tab">ARXIV</a>
-                <button class="link-btn text-link-btn" type="button" data-copy-email="__EMAIL_ADDRESS__" title="Copy email address" aria-label="Copy email address to clipboard">EMAIL</button>
+                <a class="link-btn text-link-btn" href="__GITHUB_URL__" target="_blank" rel="noopener noreferrer" title="__GITHUB_TITLE__" aria-label="__GITHUB_ARIA__">GITHUB</a>
+                <a class="link-btn text-link-btn" href="__ARXIV_URL__" target="_blank" rel="noopener noreferrer" title="__ARXIV_TITLE__" aria-label="__ARXIV_ARIA__">ARXIV</a>
+                <button class="link-btn text-link-btn" type="button" data-copy-email="__EMAIL_ADDRESS__" data-copy-success="__COPY_SUCCESS__" data-copy-error="__COPY_ERROR__" title="__EMAIL_TITLE__" aria-label="__EMAIL_ARIA__">EMAIL</button>
               </div>
             </div>
           </div>
@@ -93,26 +96,26 @@
 
     <div class="copy-toast" data-copy-toast role="status" aria-live="polite" aria-atomic="true"></div>
 
-    <main class="right">
+    <main class="right" id="archive-content" tabindex="-1">
       <header class="home-title">
         <div class="title-line">
           <span class="title-micro title-micro-left">||||</span>
           <span class="title-bar"></span>
           <span class="title-burst title-burst-left" aria-hidden="true"></span>
-          <span class="title-copy">Content display</span>
+          <span class="title-copy">__ARCHIVE_TITLE__</span>
           <span class="title-burst title-burst-right" aria-hidden="true"></span>
           <span class="title-bar"></span>
           <span class="title-micro title-micro-right">||||</span>
         </div>
         <div class="title-subline">
           <span class="title-dots">··</span>
-          <span>homepage</span>
+          <span>__ARCHIVE_SUBTITLE__</span>
           <span class="title-dots">··</span>
         </div>
       </header>
 
       <div class="tip tip-slogan">
-        <div class="tip-text">Attempt is the first step towards failure.</div>
+        <div class="tip-text">__MOTTO__</div>
       </div>
 
       <section class="module-list">
@@ -122,14 +125,14 @@
             <span class="ticket-corner ticket-corner-right" aria-hidden="true"></span>
             <div class="module-head">
               <div class="module-copy">
-                <div class="module-kicker">◆ Learning Journals module</div> <!--修改为对该模块的说明-->
-                <div class="module-title">Learning Journals</div>
-                <div class="module-summary">Concept checks, derivations, and study records close to the process of learning.</div>
+                <div class="module-kicker">__JOURNALS_KICKER__</div>
+                <div class="module-title">__JOURNALS_TITLE__</div>
+                <div class="module-summary">__JOURNALS_SUMMARY__</div>
                 <div class="module-dot-run" aria-hidden="true"></div>
               </div>
               <div class="module-separator" aria-hidden="true"></div>
               <div class="module-metric">
-                <div class="module-metric-label">Entries</div>
+                <div class="module-metric-label">__ENTRIES_LABEL__</div>
                 <div class="module-metric-display">
                   <span class="module-metric-value">__JOURNALS_COUNT__</span>
                   <span class="module-metric-unit"></span>
@@ -144,20 +147,20 @@
 
           <div class="module-card-bottom">
             <div class="module-column module-column-recent">
-              <div class="module-column-title">Recent entries</div>
+              <div class="module-column-title">__RECENT_ENTRIES__</div>
               <div class="module-column-body">
                 __JOURNALS_RECENT__
               </div>
             </div>
 
             <div class="module-column module-column-tags" data-tag-module data-tag-source="learning-journals" data-tag-items="__JOURNALS_TAG_DATA__">
-              <div class="module-column-title">Common tags</div>
+              <div class="module-column-title">__COMMON_TAGS__</div>
               <div class="tag-stack">
                 <div class="tag-rail">
                   <span class="tag-rail-line"></span>
-                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" aria-label="Latest tags"></button>
-                  <button class="tag-light tag-light-random" type="button" data-mode="random" aria-label="Random tags"></button>
-                  <button class="tag-light tag-light-top" type="button" data-mode="top" aria-label="Top tags"></button>
+                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" data-label="__LATEST_LABEL__" aria-label="__LATEST_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-random" type="button" data-mode="random" data-label="__RANDOM_LABEL__" aria-label="__RANDOM_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-top" type="button" data-mode="top" data-label="__TOP_LABEL__" aria-label="__TOP_TAGS_ARIA__"></button>
                 </div>
                 <div class="tag-list">
                   <a class="tag-slot" data-tag-slot="0" href=""><span class="tag-slot-text"></span></a>
@@ -175,14 +178,14 @@
             <span class="ticket-corner ticket-corner-right" aria-hidden="true"></span>
             <div class="module-head">
               <div class="module-copy">
-                <div class="module-kicker">◆ Essay module</div>
-                <div class="module-title">Essay</div>
-                <div class="module-summary">Long-form arguments on methodology, media, and interdisciplinary thinking.</div>
+                <div class="module-kicker">__ESSAY_KICKER__</div>
+                <div class="module-title">__ESSAY_TITLE__</div>
+                <div class="module-summary">__ESSAY_SUMMARY__</div>
                 <div class="module-dot-run" aria-hidden="true"></div>
               </div>
               <div class="module-separator" aria-hidden="true"></div>
               <div class="module-metric">
-                <div class="module-metric-label">Entries</div>
+                <div class="module-metric-label">__ENTRIES_LABEL__</div>
                 <div class="module-metric-display">
                   <span class="module-metric-value">__ESSAY_COUNT__</span>
                   <span class="module-metric-unit"></span>
@@ -196,19 +199,19 @@
           </a>
           <div class="module-card-bottom">
             <div class="module-column module-column-recent">
-              <div class="module-column-title">Recent entries</div>
+              <div class="module-column-title">__RECENT_ENTRIES__</div>
               <div class="module-column-body">
                 __ESSAY_RECENT__
               </div>
             </div>
             <div class="module-column module-column-tags" data-tag-module data-tag-source="essay" data-tag-items="__ESSAY_TAG_DATA__">
-              <div class="module-column-title">Common tags</div>
+              <div class="module-column-title">__COMMON_TAGS__</div>
               <div class="tag-stack">
                 <div class="tag-rail">
                   <span class="tag-rail-line"></span>
-                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" aria-label="Latest tags"></button>
-                  <button class="tag-light tag-light-random" type="button" data-mode="random" aria-label="Random tags"></button>
-                  <button class="tag-light tag-light-top" type="button" data-mode="top" aria-label="Top tags"></button>
+                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" data-label="__LATEST_LABEL__" aria-label="__LATEST_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-random" type="button" data-mode="random" data-label="__RANDOM_LABEL__" aria-label="__RANDOM_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-top" type="button" data-mode="top" data-label="__TOP_LABEL__" aria-label="__TOP_TAGS_ARIA__"></button>
                 </div>
                 <div class="tag-list">
                   <a class="tag-slot" data-tag-slot="0" href=""><span class="tag-slot-text"></span></a>
@@ -226,14 +229,14 @@
             <span class="ticket-corner ticket-corner-right" aria-hidden="true"></span>
             <div class="module-head">
               <div class="module-copy">
-                <div class="module-kicker">◆ Project module</div>
-                <div class="module-title">Project</div>
-                <div class="module-summary">Sustained investigations with explicit goals, current state, and next steps.</div>
+                <div class="module-kicker">__PROJECT_KICKER__</div>
+                <div class="module-title">__PROJECT_TITLE__</div>
+                <div class="module-summary">__PROJECT_SUMMARY__</div>
                 <div class="module-dot-run" aria-hidden="true"></div>
               </div>
               <div class="module-separator" aria-hidden="true"></div>
               <div class="module-metric">
-                <div class="module-metric-label">Entries</div>
+                <div class="module-metric-label">__ENTRIES_LABEL__</div>
                 <div class="module-metric-display">
                   <span class="module-metric-value">__PROJECT_COUNT__</span>
                   <span class="module-metric-unit"></span>
@@ -247,19 +250,19 @@
           </a>
           <div class="module-card-bottom">
             <div class="module-column module-column-recent">
-              <div class="module-column-title">Recent entries</div>
+              <div class="module-column-title">__RECENT_ENTRIES__</div>
               <div class="module-column-body">
                 __PROJECT_RECENT__
               </div>
             </div>
             <div class="module-column module-column-tags" data-tag-module data-tag-source="project" data-tag-items="__PROJECT_TAG_DATA__">
-              <div class="module-column-title">Common tags</div>
+              <div class="module-column-title">__COMMON_TAGS__</div>
               <div class="tag-stack">
                 <div class="tag-rail">
                   <span class="tag-rail-line"></span>
-                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" aria-label="Latest tags"></button>
-                  <button class="tag-light tag-light-random" type="button" data-mode="random" aria-label="Random tags"></button>
-                  <button class="tag-light tag-light-top" type="button" data-mode="top" aria-label="Top tags"></button>
+                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" data-label="__LATEST_LABEL__" aria-label="__LATEST_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-random" type="button" data-mode="random" data-label="__RANDOM_LABEL__" aria-label="__RANDOM_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-top" type="button" data-mode="top" data-label="__TOP_LABEL__" aria-label="__TOP_TAGS_ARIA__"></button>
                 </div>
                 <div class="tag-list">
                   <a class="tag-slot" data-tag-slot="0" href=""><span class="tag-slot-text"></span></a>
@@ -277,14 +280,14 @@
             <span class="ticket-corner ticket-corner-right" aria-hidden="true"></span>
             <div class="module-head">
               <div class="module-copy">
-                <div class="module-kicker">◆ Technical Notes module</div>
-                <div class="module-title">Technical Notes</div>
-                <div class="module-summary">Tooling, build pipelines, and reproducible implementation details.</div>
+                <div class="module-kicker">__TECHNOTES_KICKER__</div>
+                <div class="module-title">__TECHNOTES_TITLE__</div>
+                <div class="module-summary">__TECHNOTES_SUMMARY__</div>
                 <div class="module-dot-run" aria-hidden="true"></div>
               </div>
               <div class="module-separator" aria-hidden="true"></div>
               <div class="module-metric">
-                <div class="module-metric-label">Entries</div>
+                <div class="module-metric-label">__ENTRIES_LABEL__</div>
                 <div class="module-metric-display">
                   <span class="module-metric-value">__TECHNOTES_COUNT__</span>
                   <span class="module-metric-unit"></span>
@@ -298,19 +301,19 @@
           </a>
           <div class="module-card-bottom">
             <div class="module-column module-column-recent">
-              <div class="module-column-title">Recent entries</div>
+              <div class="module-column-title">__RECENT_ENTRIES__</div>
               <div class="module-column-body">
                 __TECHNOTES_RECENT__
               </div>
             </div>
             <div class="module-column module-column-tags" data-tag-module data-tag-source="technical-notes" data-tag-items="__TECHNOTES_TAG_DATA__">
-              <div class="module-column-title">Common tags</div>
+              <div class="module-column-title">__COMMON_TAGS__</div>
               <div class="tag-stack">
                 <div class="tag-rail">
                   <span class="tag-rail-line"></span>
-                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" aria-label="Latest tags"></button>
-                  <button class="tag-light tag-light-random" type="button" data-mode="random" aria-label="Random tags"></button>
-                  <button class="tag-light tag-light-top" type="button" data-mode="top" aria-label="Top tags"></button>
+                  <button class="tag-light tag-light-latest is-active" type="button" data-mode="latest" data-label="__LATEST_LABEL__" aria-label="__LATEST_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-random" type="button" data-mode="random" data-label="__RANDOM_LABEL__" aria-label="__RANDOM_TAGS_ARIA__"></button>
+                  <button class="tag-light tag-light-top" type="button" data-mode="top" data-label="__TOP_LABEL__" aria-label="__TOP_TAGS_ARIA__"></button>
                 </div>
                 <div class="tag-list">
                   <a class="tag-slot" data-tag-slot="0" href=""><span class="tag-slot-text"></span></a>

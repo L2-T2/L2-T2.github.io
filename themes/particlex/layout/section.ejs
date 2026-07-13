@@ -15,23 +15,25 @@
 
   function sectionLabel(section) {
     return {
-      "learning-journals": "Learning Journals",
-      essay: "Essays",
-      project: "Projects",
-      "technical-notes": "Technical Notes"
-    }[section] || page.title;
+      "learning-journals": __("sections.learning_journals"),
+      essay: __("sections.essays"),
+      project: __("sections.projects"),
+      "technical-notes": __("sections.technical_notes")
+    }[section] || page.title || __("sections.section");
   }
 
   const section = page.section;
+  const currentLanguage = page_language(page);
   const posts = site.posts
-    .filter((post) => normalizeCollection(post.categories).some((category) => category.name === section))
+    .filter((post) => page_language(post) === currentLanguage
+      && normalizeCollection(post.categories).some((category) => category.name === section))
     .sort("-date");
 
   const tags = new Map();
   posts.forEach((post) => {
     normalizeCollection(post.tags).forEach((tag) => {
       if (tag.name.toLowerCase() === section) return;
-      tags.set(tag.name, { count: (tags.get(tag.name)?.count || 0) + 1, path: tag.path });
+      tags.set(tag.name, { count: (tags.get(tag.name)?.count || 0) + 1, tag });
     });
   });
 
@@ -41,7 +43,7 @@
 %>
 <section class="section-page">
   <div class="hero-panel panel">
-    <div class="hero-kicker"><%= section %></div>
+    <div class="hero-kicker"><%= __("sections.section") %></div>
     <h1 class="hero-title"><%= sectionLabel(section) %></h1>
     <% if (page.content && page.content.trim()) { %>
     <div class="hero-summary prose">
@@ -51,25 +53,25 @@
     <div class="hero-metrics">
       <div class="metric-card">
         <div class="metric-value"><%= posts.length %></div>
-        <div class="metric-label">entries</div>
+        <div class="metric-label"><%= __("section.entries") %></div>
       </div>
       <div class="metric-card">
         <div class="metric-value"><%= topTags.length %></div>
-        <div class="metric-label">top tags</div>
+        <div class="metric-label"><%= __("section.top_tags") %></div>
       </div>
       <div class="metric-card">
         <div class="metric-value"><%= posts.length ? date(posts.first().date, "YYYY") : "--" %></div>
-        <div class="metric-label">latest year</div>
+        <div class="metric-label"><%= __("section.latest_year") %></div>
       </div>
     </div>
   </div>
 
   <% if (topTags.length) { %>
   <div class="taxonomy-strip panel">
-    <h2 class="taxonomy-strip-title">Common tags</h2>
+    <h2 class="taxonomy-strip-title"><%= __("section.common_tags") %></h2>
     <div class="taxonomy-list">
       <% topTags.forEach(([name, data]) => { %>
-      <a class="taxonomy-link" href="<%- url_for(data.path) %>">#<%= name %> · <%= data.count %></a>
+      <a class="taxonomy-link" href="<%- localized_tag_url(data.tag, currentLanguage) %>">#<%= name %> · <%= data.count %></a>
       <% }) %>
     </div>
   </div>
@@ -100,14 +102,14 @@
         <span class="meta-chip"><%= post.course %></span>
         <% } %>
         <% normalizeCollection(post.tags).forEach((tag) => { %>
-        <a class="meta-chip" href="<%- url_for(tag.path) %>">#<%= tag.name %></a>
+        <a class="meta-chip" href="<%- localized_tag_url(tag, currentLanguage) %>">#<%= tag.name %></a>
         <% }) %>
       </div>
 
       <div class="entry-card-footer">
-        <a class="entry-action" href="<%- url_for(post.path) %>">Open entry</a>
+        <a class="entry-action" href="<%- url_for(post.path) %>"><%= __("section.open_entry") %></a>
         <% if (post.repo) { %>
-        <a class="entry-external" href="<%= post.repo %>" target="_blank" rel="noopener">Repository</a>
+        <a class="entry-external" href="<%= post.repo %>" target="_blank" rel="noopener"><%= __("section.repository") %></a>
         <% } %>
       </div>
     </article>
@@ -115,7 +117,7 @@
   </div>
   <% } else { %>
   <div class="empty-panel panel">
-    No entries in this section yet.
+    <%= __("section.empty") %>
   </div>
   <% } %>
 </section>

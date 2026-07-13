@@ -3,7 +3,10 @@ title: {{ title }}
 date: {{ date }}
 layout: entry
 categories: [technical-notes]
-slug:
+slug: {{ slug }}
+lang: en
+lang_path: ''
+translation_key: {{ slug }}
 description:
 repo: 
 tags:

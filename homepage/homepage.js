@@ -212,10 +212,10 @@ function initEmailCopyButtons() {
       const email = button.dataset.copyEmail || "";
       const copied = await copyTextToClipboard(email);
       if (copied) {
-        toast.show(`邮箱已复制：${email}`);
+        toast.show(`${button.dataset.copySuccess || "Email copied:"} ${email}`);
         return;
       }
-      toast.show(`复制失败：${email}`);
+      toast.show(`${button.dataset.copyError || "Copy failed:"} ${email}`);
     });
   });
 }

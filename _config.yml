@@ -6,12 +6,16 @@ title: L2-T2
 subtitle: ''
 description: 'Liuting Chen'
 author: Liuting Chen
-language: en
+language:
+  - en
+  - zh-CN
 timezone: Europe/Copenhagen
 
 # URL
 url: https://l2-t2.github.io
-permalink: :category/:slug/
+permalink: :lang_path:category/:slug/
+permalink_defaults:
+  lang_path: ''
 
 # Directory
 source_dir: source
@@ -21,7 +25,7 @@ archive_dir: archives
 category_dir: categories
 
 # Writing
-new_post_name: :title.md
+new_post_name: :locale_dir/:title.md
 default_layout: post
 titlecase: false
 render_drafts: false
@@ -44,7 +48,7 @@ highlight:
 # Home page
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 0
   order_by: -date
 
 # Category & Tag

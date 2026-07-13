@@ -4,29 +4,29 @@ date: {{ date }}
 layout: entry
 categories: [project]
 slug: {{ slug }}
-lang: en
-lang_path: ''
+lang: zh-CN
+lang_path: zh/
 translation_key: {{ slug }}
 description:
-status: active
-repo: 
+status: 进行中
+repo:
 tags:
-  - 
+  -
 featured: false
 ---
 
-## Overview
+## 概述
 
-[Brief project description]
+[简要介绍项目]
 
-## Goals
+## 目标
 
-- 
+-
 
-## Current Progress
+## 当前进展
 
-- 
+-
 
-## Next Steps
+## 下一步
 
-- 
+-

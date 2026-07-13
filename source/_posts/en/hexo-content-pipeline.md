@@ -3,6 +3,9 @@ title: Hexo Content Pipeline
 date: 2026-03-22
 layout: entry
 slug: hexo-content-pipeline
+lang: en
+lang_path: ''
+translation_key: hexo-content-pipeline
 description: The build and content pipeline used by this repository, including shared metadata conventions and static asset handling.
 categories: [technical-notes]
 tags:
