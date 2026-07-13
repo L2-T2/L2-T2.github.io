@@ -1,118 +1,133 @@
 ---
-title: Anna Sfard：从数学学习理论到认知科学与人机交互
+
+title: "Anna Sfard: From Mathematics Learning Theory to Cognitive Science and Human-Computer Interaction"
+
 date: 2026-03-14
+
 layout: entry
+
 slug: anna-sfard-learning-theory-cognitive-science-hci
-description: 从 reification、learning metaphors 到 commognition，讨论 Sfard 如何重新定义“理解”，以及这一理论如何进入认知科学与 HCI 的分析框架。
+
+description: From reification, learning metaphors to commognition, discussing how Sfard redefines "understanding" and how this theory enters the analytical frameworks of cognitive science and HCI.
+
 categories: [essay]
+
 tags:
-  - 教育理论
-  - 数学教育
-  - 认知科学
-  - Causality
-  - 人机交互
-subtitle: 从 reification、learning metaphors 到 commognition，讨论 Sfard 如何重新定义“理解”，以及这一理论如何进入认知科学与 HCI 的分析框架。
+
+- Educational Theory
+
+- Mathematics Education
+
+- Cognitive Science
+
+- Causality
+
+- Human-Computer Interaction
+
+subtitle: From reification, learning metaphors to commognition, discussing how Sfard redefines "understanding" and how this theory enters the analytical frameworks of cognitive science and HCI.
+
 byline: L2-T2
+
 ---
 
-Anna Sfard 通常被归入数学教育研究领域，但如果只把她理解为一位讨论课堂教学的学者，实际上会低估她工作的理论强度。她持续处理的并不是某种局部教学技巧，而是几个更底层的问题：抽象对象是如何生成的，学习究竟意味着什么，理解到底应被看作知识的获得、实践的参与，还是某种话语方式的改变。也因此，Sfard 的重要性不在于提出了一套可直接套用的教学模型，而在于她不断迫使研究者重新界定“学习”与“理解”这两个最基础的概念。
+Anna Sfard is often categorized within the field of mathematics education research, but understanding her merely as a scholar discussing classroom teaching actually underestimates the theoretical intensity of her work. What she consistently addresses are not localized teaching techniques, but several more fundamental questions: How are abstract objects generated? What does learning truly mean? Should understanding be seen as the acquisition of knowledge, participation in practice, or a change in the mode of discourse? Therefore, Sfard's importance lies not in providing a directly applicable teaching model, but in her constant push for researchers to redefine the most basic concepts of "learning" and "understanding."
 
-她的理论发展并不是几篇彼此分散的论文，而是一条相当清晰的推进路径。早期，她讨论数学概念如何从操作和过程之中被构造出来；中期，她转向学习理论的元层面，分析教育研究为何总在不同隐喻之间摆动；后期，她进一步把思维重述为交流的个体化形式，并以 discourse 及其规则取代“头脑中的表征”作为主要分析单位。换言之，Sfard 始终在处理同一个核心问题：抽象理解如何形成，只是她对这一问题的解释单位不断扩展，从对象扩展到隐喻，再扩展到话语。
+Her theoretical development is not a collection of scattered papers, but a remarkably clear path of progression. Early on, she discussed how mathematical concepts are constructed from operations and processes; in her middle period, she shifted to the meta-level of learning theories, analyzing why educational research constantly oscillates between different metaphors; later, she further reframed thinking as an individualized form of communication, replacing "mental representations" with discourse and its rules as the primary unit of analysis. In other words, Sfard has always been dealing with the same core question: How does abstract understanding form? Only the unit of analysis for this question has continuously expanded, from objects to metaphors, and then to discourse.
 
-> [!NOTE|问题意识|#sfard-core]
-> Sfard 的理论不是围绕某个单点教学技巧展开，而是围绕“理解如何发生”这一更基础的问题展开。她的代表性贡献，恰恰在于不断修正这一问题的表述方式。
+> [!NOTE|Core Problem|#sfard-core]
 
-## 一、Who is Sfard：她是谁，她在处理什么问题
+> Sfard's theory does not revolve around a single teaching technique, but around the more fundamental question of "how understanding occurs." Her representative contribution lies precisely in her continuous refinement of how this question is formulated.
 
-Anna Sfard 是当代数学教育理论中最具影响力的学者之一，但她的工作从一开始就超出了“数学教学法”的狭义范围。她所关心的，并不是学生是否做对了某一道题，而是数学对象本身如何被学习者理解为对象，学习理论究竟在以什么方式描述这种理解，以及这种描述是否足够准确。她的问题意识因此天然具有跨学科性质：一方面，它涉及数学概念的认识论；另一方面，它也涉及学习理论、语言哲学和认知科学层面的基础争论。
+## 1. Who is Sfard: Who She Is and What Problem She Addresses
 
-Sfard 的理论价值首先体现在她对“学习”语言的持续修正。1992 年，她试图回答抽象数学对象如何从活动与过程之中生成；1998 年，她进一步追问，教育研究为何长期被不同的学习隐喻所支配；2007 年，她则提出 commognition，将思维界定为交流的个体化形式，并把学习重述为话语规则的改变。她的重要性，正是在于不断将原本看似理所当然的概念——对象、学习、理解、认知——重新打开，并迫使研究者看到这些概念背后的隐含前提。
+Anna Sfard is one of the most influential scholars in contemporary mathematics education theory, but her work has always extended beyond the narrow scope of "mathematics teaching methods." What concerns her is not whether a student solves a particular problem correctly, but how mathematical objects themselves come to be understood as objects by learners, how learning theories describe this understanding, and whether this description is accurate enough. Her problem awareness is therefore inherently interdisciplinary: on one hand, it involves the epistemology of mathematical concepts; on the other, it touches upon fundamental debates in learning theory, philosophy of language, and cognitive science.
 
-因此，Sfard 不应被简单理解为“提出了某个著名模型的作者”。更准确的说法是，她是一位不断重写问题框架的理论家。她的理论路径表明，学习并不是一个已经被充分界定的对象，而是一个必须通过不断反思分析单位才能被更准确描述的过程。
+Sfard's theoretical value is first evident in her continuous refinement of the language of "learning." In 1992, she attempted to answer how abstract mathematical objects are generated from activities and processes; in 1998, she further questioned why educational research had long been dominated by different learning metaphors; in 2007, she proposed commognition, defining thinking as an individualized form of communication and reframing learning as a change in discursive rules. Her importance lies precisely in her constant reopening of concepts that were once taken for granted—objects, learning, understanding, cognition—and forcing researchers to see the implicit assumptions behind these concepts.
 
-## 二、Her main faction：她属于什么理论阵营
+Therefore, Sfard should not be simply understood as "the author who proposed a famous model." More accurately, she is a theorist who continuously rewrites the framework of the problem. Her theoretical path shows that learning is not a fully defined object, but a process that must be more accurately described through continuous reflection on the unit of analysis.
 
-若试图用“学派”来给 Sfard 定位，很容易陷入误判。她早期确实带有明显的认知取向，强调个体如何从 operational conception 走向 structural conception；但她并没有停留在传统认知主义内部。相反，她很快意识到，仅仅讨论头脑中的概念结构，并不足以解释学习理论中的根本争议。于是，她转向对学习隐喻的分析，指出“学习是什么”本身已经被不同理论语言预设了。再到后期，她进一步走向 discourse-oriented 的路径，将理解放入语言、规则、视觉中介与共同体实践之中。
+## 2. Her Main Faction: Which Theoretical Camp Does She Belong To
 
-因此，Sfard 最准确的位置，不是某一个封闭的阵营，而是一条桥梁式的理论路线。她从认知问题出发，却不断把认知问题推向社会语言层面；她从抽象概念形成入手，却逐步转向对学习语言本身的批判。她既不能被简单归入传统认知主义，也不能被轻易视为纯粹的社会建构主义。更恰当的理解是：Sfard 所代表的是一种中层理论建构取向，它以概念形成作为入口，但拒绝把学习还原为个体内部的静态表征积累。
+Attempting to place Sfard within a "school" easily leads to misjudgment. Early on, she indeed had a clear cognitive orientation, emphasizing how individuals move from an operational conception to a structural conception; but she did not remain within traditional cognitivism. Instead, she quickly realized that merely discussing conceptual structures in the mind was insufficient to explain the fundamental controversies in learning theory. Thus, she turned to the analysis of learning metaphors, pointing out that "what learning is" has already been presupposed by different theoretical languages. Later, she moved further towards a discourse-oriented path, placing understanding within language, rules, visual mediators, and community practice.
 
-这种理论位置也解释了她为何持续具有影响力。她不是用一个总理论压倒其他框架，而是不断指出不同框架各自能解释什么、又会遮蔽什么。她真正提供的，并不是终局答案，而是一种更高分辨率的问题构造方式。
+Therefore, Sfard's most accurate position is not within a closed camp, but along a bridge-like theoretical route. She starts from cognitive problems but continuously pushes them towards the socio-linguistic level; she begins with the formation of abstract concepts but gradually shifts to a critique of the language of learning itself. She can neither be simply classified as a traditional cognitivist nor easily seen as a pure social constructivist. A more appropriate understanding is that Sfard represents a middle-range theory-building approach, which takes concept formation as its entry point but refuses to reduce learning to the accumulation of static internal representations.
 
-## 三、Development of her claim：她的理论如何发展
+This theoretical position also explains her enduring influence. She does not use one overarching theory to override others, but continuously points out what different frameworks can explain and what they obscure. What she truly provides is not a final answer, but a higher-resolution way of constructing the problem.
 
-### 1. 从过程到对象：operational conception、structural conception 与 reification
+## 3. Development of Her Claim: How Her Theory Developed
 
-Sfard 早期最重要的贡献，是对数学概念双重性的讨论。她指出，数学概念既可以被理解为操作性的，也可以被理解为结构性的。所谓 operational conception，是把概念理解为动作、程序或过程，重点在于“怎么做”；所谓 structural conception，则是把概念理解为一个完整的、可被整体把握和操纵的对象，重点在于“它是什么”。
+### 1. From Process to Object: Operational Conception, Structural Conception, and Reification
 
-关键在于，这两者不是一组简单对立项，而是同一概念的两个互补面向。成熟的理解，并不是用对象面取代过程面，而是让二者形成协同关系。一个学习者可以先通过操作性活动接近某个概念，随后再逐渐把原本展开的步骤压缩为一个整体对象；而一旦对象化完成，学习者又能反过来把这个对象作为新的高层操作单位进行进一步推理。
+Sfard's most important early contribution is her discussion of the dual nature of mathematical concepts. She points out that mathematical concepts can be understood both operationally and structurally. An operational conception understands a concept as an action, procedure, or process, focusing on "how to do it"; a structural conception understands a concept as a complete object that can be grasped and manipulated as a whole, focusing on "what it is."
 
-Sfard 用 **reification** 来解释这一关键跃迁。她认为，抽象概念的真正困难不在于步骤复杂，而在于学习者需要完成一种本体论层面的变化：原本只能被经历为“一个过程”的东西，必须被提升为“一个对象”。她将这一发展描述为从 interiorization 到 condensation，再到 reification 的过程。前两个阶段还可以理解为对过程的熟悉与压缩，而第三个阶段才是真正困难之处，因为它要求学习者不再只是执行动作，而是把动作结果整体化为一个静态、可命名、可比较、可进一步操作的实体。
+The key is that these are not a simple pair of opposites, but two complementary aspects of the same concept. Mature understanding does not replace the process aspect with the object aspect, but allows them to form a synergistic relationship. A learner can first approach a concept through operational activities, then gradually compress the unfolded steps into a whole object; once objectification is complete, the learner can then use this object as a new higher-level operational unit for further reasoning.
 
-函数概念是其中最经典的例子。初学者往往把函数理解为“代入—运算—输出”的规则，这是一种典型的过程理解；而现代数学所要求的，却是把函数视为一个整体对象，它可以被比较、分类、组合，甚至作为其他运算的输入。也正因如此，许多学生明明能够做代入计算，却依旧无法真正理解函数作为对象的意义。Sfard 的理论价值，就在于她把这种困难解释为对象化尚未完成，而不是简单的技巧薄弱或定义记忆不足。
+Sfard uses **reification** to explain this critical leap. She argues that the real difficulty of abstract concepts lies not in the complexity of steps, but in the learner needing to undergo a change at the ontological level: something that can only be experienced as "a process" must be elevated to "an object." She describes this development as a process from interiorization to condensation, and then to reification. The first two stages can be understood as familiarization with and compression of the process, while the third stage is the truly difficult one, as it requires the learner to no longer just execute actions, but to objectify the result of the action into a static, nameable, comparable, and further manipulable entity.
 
-> [!NOTE|reification|#reification-anchor]
-> Sfard 的关键判断是：抽象学习的难点往往不是“不会做”，而是尚未完成从过程到对象的转换。很多看似零散的错误，其实都可能指向同一个问题——对象化失败。
+The concept of function is the classic example. Beginners often understand a function as a rule of "substitution—computation—output," which is a typical process understanding; what modern mathematics requires, however, is to see the function as a whole object that can be compared, classified, combined, and even used as input for other operations. This is why many students who can perform substitution calculations still fail to truly understand the meaning of a function as an object. Sfard's theoretical value lies in explaining this difficulty as incomplete objectification, rather than simple weak skills or insufficient memorization of definitions.
 
-### 2. 从知识获得到实践参与：acquisition metaphor 与 participation metaphor
+> [!NOTE|Reification|#reification-anchor]
 
-1998 年，Sfard 的理论明显上升到了元理论层面。她不再只是讨论数学对象如何形成，而是开始追问教育研究到底在用什么语言描述学习。她指出，长期以来，学习理论一直被两种基本隐喻支配：**acquisition metaphor** 与 **participation metaphor**。
+> Sfard's key judgment is: The difficulty of abstract learning is often not "not knowing how to do it," but the failure to complete the transition from process to object. Many seemingly scattered errors may actually point to the same problem—failed objectification.
 
-获得隐喻将学习理解为获得某种东西。在这种语言中，知识、概念、表征、意义都像是可被拥有、积累、传递和储存的对象。它的优势在于便于讨论个体认知结构、知识迁移和概念掌握，但问题也很明显：知识很容易被物化，仿佛学习只是把某些“内容”装进头脑。
+### 2. From Knowledge Acquisition to Practice Participation: Acquisition Metaphor and Participation Metaphor
 
-参与隐喻则把学习理解为进入某种共同体、实践或活动形式。它强调的是参与、归属、交流与共同实践，而不是对对象的占有。它的优势在于凸显了情境、身份和社会互动的重要性，但若走向极端，也会模糊学科内容本身，使“参与活动”与“真正学到内容”之间的差异被稀释。
+In 1998, Sfard's theory clearly ascended to a meta-theoretical level. She no longer just discussed how mathematical objects form, but began to question what language educational research uses to describe learning. She pointed out that for a long time, learning theory has been dominated by two basic metaphors: the **acquisition metaphor** and the **participation metaphor**.
 
-Sfard 在这里最重要的判断，并不是要在两者中选出唯一正确的一方，而是反对任何单一隐喻独占解释权。因为一旦某一种隐喻成为唯一语言，理论就会开始失真。获得隐喻会遮蔽实践与互动，参与隐喻则可能遮蔽知识内容与概念边界。她的工作实际上揭示出：学习理论中的许多冲突，并不只是证据冲突，首先是隐喻冲突。
+The acquisition metaphor understands learning as acquiring something. In this language, knowledge, concepts, representations, and meanings are like objects that can be owned, accumulated, transferred, and stored. Its advantage is that it facilitates discussion of individual cognitive structures, knowledge transfer, and concept mastery, but the problem is also clear: knowledge is easily reified, as if learning is merely putting certain "content" into the mind.
 
-这一阶段的意义在于，Sfard 不再满足于用一个模型解释学习，而开始分析“我们为什么会这样谈论学习”。这一步也为她后来走向 commognition 铺平了道路。既然学习不能只被描述为获得，那么接下来就必须进一步说明，所谓参与到底参与了什么，以及这种参与如何与理解和认知变化相联系。
+The participation metaphor understands learning as entering a community, practice, or form of activity. It emphasizes participation, belonging, communication, and shared practice, rather than possession of objects. Its advantage lies in highlighting the importance of context, identity, and social interaction, but if taken to extremes, it can blur the subject content itself, diluting the difference between "participating in an activity" and "truly learning the content."
 
-### 3. 从认知到话语：commognition
+Sfard's most important judgment here is not to choose the one correct side between the two, but to oppose any single metaphor monopolizing explanatory power. Because once one metaphor becomes the only language, the theory begins to distort. The acquisition metaphor obscures practice and interaction, while the participation metaphor may obscure knowledge content and conceptual boundaries. Her work actually reveals that many conflicts in learning theory are not just conflicts of evidence, but first and foremost conflicts of metaphor.
 
-Sfard 后期最具代表性的理论，是 **commognition**。在这个框架中，她提出一个更激进的判断：思维并不是先于交流而独立存在的内部活动，相反，思维可以被理解为交流的个体化形式。换言之，thinking is individualized communication。由此，学习也不再首先被理解为“获得知识对象”，而是被理解为掌握、扩展并个体化一种新的 discourse。
+The significance of this stage is that Sfard is no longer satisfied with explaining learning with a single model, but begins to analyze "why we talk about learning this way." This step also paved the way for her later move towards commognition. Since learning cannot only be described as acquisition, the next step must further explain what participation actually involves, and how this participation relates to understanding and cognitive change.
 
-在 commognitive 框架中，Sfard 不再以“概念是否存在于头脑中”为中心，而是转向分析一种共同体的话语究竟如何运作。她提出了四个关键维度：**词语使用、视觉中介、叙述与常规**。一个学习者是否真正学会了某个领域，并不只取决于是否记住了定义或程序，而取决于能否按照该共同体认可的方式命名对象、运用图示或符号中介、生成并认可特定叙述，以及执行相应的 routines。
+### 3. From Cognition to Discourse: Commognition
 
-更重要的是，她区分了 **object-level rules** 与 **meta-rules**。很多学习中的真正困难，并不发生在对象规则层面，而发生在更高层的元规则层面：什么算作定义，什么算作可接受的理由，什么算作证明，什么样的表达才被共同体认可。也就是说，学生的问题往往不是“不知道答案”，而是尚未进入决定“什么才算答案”的规则系统。
+Sfard's most representative later theory is **commognition**. In this framework, she makes a more radical judgment: thinking is not an internal activity that exists independently prior to communication; on the contrary, thinking can be understood as an individualized form of communication. In other words, thinking is individualized communication. Consequently, learning is no longer primarily understood as "acquiring knowledge objects," but as mastering, extending, and individualizing a new discourse.
 
-这一理论极大地扩展了 Sfard 的分析视野。她不再只是讨论对象如何形成，而是把理解本身重述为一种话语规则的改变。这使得她的理论不再局限于概念学习，而进入更广泛的认知与互动分析。
+In the commognitive framework, Sfard no longer centers on "whether a concept exists in the mind," but turns to analyzing how the discourse of a community actually operates. She proposes four key dimensions: **word use, visual mediators, narratives, and routines**. Whether a learner has truly mastered a field depends not only on whether they remember definitions or procedures, but on whether they can name objects, use diagrams or symbolic mediators, generate and endorse specific narratives, and perform corresponding routines in the manner recognized by that community.
 
-## 四、What’s the use：Sfard 的理论有什么用
+More importantly, she distinguishes between **object-level rules** and **meta-rules**. Many real difficulties in learning do not occur at the object-rule level, but at the higher meta-rule level: what counts as a definition, what counts as an acceptable reason, what counts as a proof, what kind of expression is recognized by the community. In other words, the student's problem is often not "not knowing the answer," but not yet having entered the rule system that determines "what counts as an answer."
 
-Sfard 理论最直接的用途，在于它显著提高了对“学习困难”的解释精度。传统教学往往把学生不会理解为知识不足、练习不够或基础薄弱，但 Sfard 的早期理论表明，许多困难其实不是量的不足，而是层级的错位。学生可能已经能够执行程序，却仍未把过程对象化，因此无法进行更高层次的比较、变换和推理。这样一来，研究者和教师就不再只问“会不会”，而要问“他现在停留在哪一层”。
+This theory greatly expanded Sfard's analytical scope. She no longer just discusses how objects form, but reframes understanding itself as a change in discursive rules. This allows her theory to no longer be limited to concept learning, but to enter broader analyses of cognition and interaction.
 
-这一点对抽象概念教学尤其有价值。它能够解释为什么许多学生“会做题但不真正理解”，也能解释为何过早使用最终定义并不一定提升理解，反而可能造成障碍。Sfard 的理论提醒我们，程序性训练并不天然低级，它可能正是对象化得以发生的必要前提。技术性技能与抽象理解不是简单对立的，前者往往为后者铺路。
+## 4. What's the Use: What is Sfard's Theory Useful For
 
-与此同时，1998 年的 acquisition / participation 框架也具有明显的理论用途。它不能穷尽所有学习理论，但它足以暴露许多研究与教学主张背后的隐含前提。有人强调知识掌握与可测量结果，实质上是在使用获得隐喻；有人强调共同体、实践与参与，实质上是在使用参与隐喻。Sfard 的价值，不在于强行裁定谁对谁错，而在于揭示单一理论语言会带来的扭曲。它因此非常适合作为理论比较与课程分析的坐标系。
+The most direct use of Sfard's theory is that it significantly improves the precision of explaining "learning difficulties." Traditional teaching often interprets student difficulties as insufficient knowledge, lack of practice, or weak foundations, but Sfard's early theory shows that many difficulties are not quantitative deficiencies, but hierarchical mismatches. Students may be able to execute procedures but have not yet objectified the process, thus unable to perform higher-level comparisons, transformations, and reasoning. Consequently, researchers and teachers no longer just ask "can they do it," but "at which level are they currently stuck."
 
-而在后期 commognitive 框架中，Sfard 又提供了一套更可操作的互动分析工具。相比于笼统地说“交流促进学习”，她给出了更具体的问题入口：一个共同体如何使用词语，依赖什么视觉中介，认可何种叙述，执行什么常规；冲突究竟发生在对象规则层，还是元规则层。正因如此，她的理论不仅适用于数学课堂分析，也适用于更广泛的交流与规则学习研究。
+This is particularly valuable for teaching abstract concepts. It can explain why many students "can solve problems but don't truly understand," and why introducing final definitions too early does not necessarily improve understanding and may even create obstacles. Sfard's theory reminds us that procedural training is not inherently inferior; it may be a necessary prerequisite for objectification to occur. Technical skills and abstract understanding are not simply opposed; the former often paves the way for the latter.
 
-> [!NOTE|实际价值|#use-anchor]
-> Sfard 最有用的地方，不是提供一个万能结论，而是提高问题分辨率。她能让研究者更清楚地识别：困难究竟发生在对象化、隐喻选择，还是规则进入上。
+At the same time, the 1998 acquisition/participation framework also has clear theoretical utility. It cannot exhaust all learning theories, but it is sufficient to expose the implicit assumptions behind many research and teaching claims. Some emphasize knowledge mastery and measurable outcomes, essentially using the acquisition metaphor; others emphasize community, practice, and participation, essentially using the participation metaphor. Sfard's value lies not in forcibly deciding who is right or wrong, but in revealing the distortions caused by a single theoretical language. It is therefore very suitable as a coordinate system for theoretical comparison and curriculum analysis.
 
-## 五、How should we think：如何把 Sfard 提升到认知科学与人机交互
+In the later commognitive framework, Sfard provides a more operational set of tools for interaction analysis. Compared to vaguely saying "communication promotes learning," she offers more specific entry points for questions: How does a community use words? What visual mediators does it rely on? What narratives does it endorse? What routines does it perform? Does the conflict occur at the object-rule level or the meta-rule level? For this reason, her theory is applicable not only to mathematics classroom analysis, but also to broader studies of communication and rule learning.
 
-如果把 Sfard 的理论放到更广义的认知科学与人机交互研究中考察，它的价值就不应再被局限为一种数学教育理论。她最值得保留的地方，不是某个针对函数学习的局部结论，而是她对“理解”本身所做的重写。她早期的 reification 理论表明，理解不是单纯接收信息，而是一种从过程到对象的认知转化；后期的 commognitive 理论则进一步表明，理解不仅是内部表征的变化，也涉及对一套规则化话语的进入与个体化。
+> [!NOTE|Practical Value|#use-anchor]
 
-这一判断与认知科学存在明显接口。Sfard 早期关于 operational conception 与 structural conception 的讨论，本质上提出了一个普遍性的认知命题：人不是天然面对现成的抽象对象，而是先在活动、程序和操作链条中行动，随后才可能把这些过程压缩并整体化为对象。从认知科学角度看，这可以与概念形成、表征重组、规则学习、层级加工等问题相连接。特别是 reification 所强调的 ontological shift，很容易被理解为一种待进一步细化的高层认知重组机制。
+> The most useful aspect of Sfard is not providing a universal conclusion, but increasing the resolution of the problem. She allows researchers to more clearly identify: whether the difficulty lies in objectification, metaphor choice, or rule entry.
 
-但若只停留在这一层，Sfard 理论又会显出边界。早期对象化模型虽然擅长解释个体概念形成，却较少处理社会互动、文化工具、语言协商与制度环境的作用。正因如此，她的后期转向才更具有外推意义。commognition 把思维重述为交流的个体化形式，把理解问题从“头脑内部是否形成表征”扩展为“是否进入了一套共同体话语规则”。这一视角对于人机交互尤其关键。
+## 5. How Should We Think: How to Elevate Sfard to Cognitive Science and Human-Computer Interaction
 
-在 HCI 中，用户与系统之间的关系并不是简单的信息输入与输出，而是一种符号密集、规则密集、反馈驱动的互动过程。界面术语、按钮状态、视觉提示、默认选项、报错信息和推荐逻辑，都可以被理解为某种 discourse 的外化形式。用户之所以误解一个系统，往往不只是因为不会操作，而是因为用户与系统实际上遵循了不同的规则体系：系统按照设计者预设的合法路径运行，用户则依据既有经验、日常语言或情境推断来理解界面。
+If Sfard's theory is examined within the broader context of cognitive science and human-computer interaction research, its value should no longer be confined to a theory of mathematics education. What is most worth retaining is not a specific conclusion about learning functions, but her rewriting of "understanding" itself. Her early reification theory shows that understanding is not simply receiving information, but a cognitive transformation from process to object; her later commognitive theory further shows that understanding involves not only changes in internal representations, but also entry into and individualization of a rule-governed discourse.
 
-从这个角度看，许多交互失败未必只是 object-level errors，更可能是 **meta-rules** 层面的冲突。用户并不知道什么算系统认可的有效操作，不知道什么样的反馈应被视为确认，也不知道系统要求怎样的行动序列才算“正确使用”。若借用 Sfard 的理论，可以说用户学习一个系统，既是在形成一个可操作的对象化模型，也是在进入一种由界面、反馈与任务组织起来的技术话语。
+This judgment has clear interfaces with cognitive science. Sfard's early discussion of operational conception and structural conception essentially proposes a universal cognitive proposition: humans do not naturally face ready-made abstract objects, but first act within activities, procedures, and chains of operations, and only then can they compress and objectify these processes. From a cognitive science perspective, this can be connected to issues of concept formation, representational reorganization, rule learning, and hierarchical processing. In particular, the ontological shift emphasized by reification can easily be understood as a high-level cognitive reorganization mechanism that requires further specification.
 
-这也是 Sfard 与 causality 结合时最有价值的地方。她的理论并不直接提供严格识别的因果结论，但它能帮助研究者显著提高因果问题的质量。若采用早期 reification 框架，研究者可以追问：什么样的任务顺序、反馈方式、界面表征或训练结构，更可能促成用户从机械执行步骤转向形成稳定的系统对象模型？若采用后期 commognitive 框架，则可以继续追问：哪些设计因素会制造用户与系统之间的元规则不匹配，哪些视觉中介或解释机制能够帮助用户更快进入系统所要求的话语规则？
+However, if it remains only at this level, Sfard's theory shows its boundaries. While the early objectification model is good at explaining individual concept formation, it deals less with the roles of social interaction, cultural tools, linguistic negotiation, and institutional environments. This is precisely why her later turn has greater extrapolative significance. Commognition reframes thinking as an individualized form of communication, expanding the problem of understanding from "whether a representation is formed inside the mind" to "whether one has entered a set of community discursive rules." This perspective is particularly crucial for human-computer interaction.
 
-也因此，Sfard 在认知科学与人机交互之间更适合被放在 **中层理论** 的位置上。她不是终局理论，也不是因果识别方法本身；她更像一个桥梁性框架，一端连接概念形成、表征重组和规则学习等认知科学议题，另一端连接界面、反馈、符号系统与互动实践等 HCI 议题。前者强调认知重组，后者强调规则协商；前者关注对象化，后者关注话语个体化。两者结合起来，恰恰构成一种具有潜力的分析视角：用户学习一个系统，本质上既是形成可操作的内部结构，也是进入一种技术化的互动规则系统。
+In HCI, the relationship between user and system is not simply information input and output, but a symbol-intensive, rule-intensive, feedback-driven interactive process. Interface terminology, button states, visual cues, default options, error messages, and recommendation logic can all be understood as externalized forms of some discourse. A user misunderstands a system often not just because they don't know how to operate it, but because the user and the system actually follow different rule systems: the system operates according to the designer's intended legitimate paths, while the user interprets the interface based on existing experience, everyday language, or situational inference.
 
-> [!NOTE|理论定位|#hci-anchor]
-> 在认知科学与 HCI 中，Sfard 最适合承担的任务，不是替代因果研究，而是帮助研究者更精确地定义变量、提出机制假设，并识别变化究竟发生在对象化还是规则进入上。
+From this perspective, many interaction failures may not just be object-level errors, but more likely conflicts at the **meta-rules** level. The user does not know what counts as a valid operation recognized by the system, what kind of feedback should be considered confirmation, or what sequence of actions the system requires for "correct use." Borrowing Sfard's theory, one could say that a user learning a system involves both forming an operational objectified model and entering a technical discourse organized by the interface, feedback, and tasks.
 
-## 结语：Sfard 的真正遗产是什么
+This is also where Sfard is most valuable when combined with causality. Her theory does not directly provide strictly identified causal conclusions, but it can help researchers significantly improve the quality of causal questions. Using the early reification framework, researchers can ask: What task sequences, feedback methods, interface representations, or training structures are more likely to facilitate users moving from mechanically executing steps to forming a stable system object model? Using the later commognitive framework, one can further ask: Which design factors create meta-rule mismatches between user and system? Which visual mediators or explanatory mechanisms can help users more quickly enter the discursive rules required by the system?
 
-Sfard 的理论贡献，不在于她提供了一套封闭完备的学习模型，而在于她持续拆解并重写“理解”这一概念。早期，她通过 operational / structural duality 与 reification 解释抽象对象如何从过程之中生成；中期，她通过 acquisition / participation metaphors 揭示学习理论背后的隐喻结构；后期，她又通过 commognition 将思维重述为交流的个体化，并把学习理解为话语规则的改变。
+Therefore, Sfard is best placed in a **middle-range theory** position between cognitive science and HCI. She is not a final theory, nor a causal identification method itself; she is more like a bridging framework, connecting on one end cognitive science issues like concept formation, representational reorganization, and rule learning, and on the other end HCI issues like interfaces, feedback, symbol systems, and interactive practices. The former emphasizes cognitive reorganization, the latter emphasizes rule negotiation; the former focuses on objectification, the latter on discourse individualization. Combining the two precisely constitutes a potentially powerful analytical perspective: a user learning a system is essentially both forming an operable internal structure and entering a technicalized system of interactive rules.
 
-她的理论路径因此呈现出一种高度连贯的推进：从对象，到隐喻，再到 discourse，Sfard 一直在修正我们描述学习的基本单位。也正因如此，她的意义早已不应被限制在数学教育领域。她最重要的启发在于：理解既不是单纯的信息接收，也不是模糊意义上的参与，而是一个同时涉及对象化、规则化与话语个体化的复杂过程。
+> [!NOTE|Theoretical Positioning|#hci-anchor]
 
-对于今天的研究而言，Sfard 的价值恰恰在这里。她不能直接替代因果论证，也不能独自完成实验设计或经验验证；但她能够帮助研究者更清晰地识别问题发生在何处，更准确地界定变量与机制，并把概念形成、规则学习与互动结构置于同一个分析平面之上。她真正留下的，不只是几个经典术语，而是一种更锋利的提问方式。
+> In cognitive science and HCI, the most suitable task for Sfard is not to replace causal research, but to help researchers more precisely define variables, propose mechanism hypotheses, and identify whether the change occurs in objectification or rule entry.
 
-而这或许正是一个理论家最重要的成就：不是替我们关闭问题，而是让我们终于知道，问题究竟该如何被打开。
+## Conclusion: What is Sfard's True Legacy
+
+Sfard's theoretical contribution lies not in providing a closed and complete learning model, but in her continuous deconstruction and rewriting of the concept of "understanding." Early on, she explained how abstract objects are generated from processes through the operational/structural duality and reification; in her middle period, she revealed the metaphorical structure behind learning theories through the acquisition/participation metaphors; later, she reframed thinking as individualized communication through commognition, and understood learning as a change in discursive rules.
+
+Her theoretical path thus presents a highly coherent progression: from objects, to metaphors, to discourse, Sfard has been constantly revising the basic unit we use to describe learning. For this reason, her significance should no longer be confined to the field of mathematics education.

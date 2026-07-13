@@ -98,13 +98,67 @@
     };
   }
 
+  function slugifyText(value) {
+    const base = strip_html(String(value || ""))
+      .toLowerCase()
+      .replace(/[^\w一-鿿]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    return base || "section";
+  }
+
+  function envKindSlug(kind) {
+    const k = String(kind || "").toLowerCase().trim();
+    const known = ["statement", "definition", "theorem", "lemma", "proposition", "corollary", "proof", "remark", "intuition", "example", "construction"];
+    for (let i = 0; i < known.length; i += 1) {
+      if (k.indexOf(known[i]) === 0) return known[i];
+    }
+    return "note";
+  }
+
+  // Turn the authored "---[Kind: Title] ... ---[end]" blocks (which Pandoc
+  // renders as literal <p>-[Kind: Title]</p> paragraphs) into labelled
+  // theorem/proof/definition environments, and collect them for the sidebar.
+  function renderMathEnvironments(html) {
+    const items = [];
+    const used = Object.create(null);
+    const blockPattern = /<p>\s*[—–-]+\s*\[\s*([^:\]]+?)\s*:\s*([^\]]*?)\s*\]\s*<\/p>([\s\S]*?)<p>\s*[—–-]+\s*\[\s*end\s*\]\s*<\/p>/g;
+
+    const content = html.replace(blockPattern, (match, kind, title, inner) => {
+      const slug = envKindSlug(kind);
+      const cleanKind = strip_html(kind).replace(/\s+/g, " ").trim();
+      const cleanTitle = strip_html(title).replace(/\s+/g, " ").trim();
+      let id = slugifyText(cleanTitle || cleanKind);
+      if (used[id]) {
+        let n = 2;
+        while (used[`${id}-${n}`]) n += 1;
+        id = `${id}-${n}`;
+      }
+      used[id] = true;
+      items.push({ id, kind: cleanKind, slug, title: cleanTitle });
+
+      const titleMarkup = cleanTitle ? `<span class="mj-env-title">${escapeHtml(cleanTitle)}</span>` : "";
+      return `<section class="mj-env mj-env-${slug}" id="${id}">`
+        + `<div class="mj-env-head"><span class="mj-env-kind">${escapeHtml(cleanKind)}</span>${titleMarkup}</div>`
+        + `<div class="mj-env-body">${inner}</div>`
+        + `</section>`;
+    });
+
+    return { content, items };
+  }
+
+  const isMathDoc = !isEssay && section === "learning-journals";
+  const mathDoc = isMathDoc ? renderMathEnvironments(page.content) : null;
+
   const tocItems = isEssay ? buildTocItems(page.content) : [];
   const essayContent = isEssay ? extractEssayNotes(page.content) : { content: page.content, notes: [] };
-  const renderedContent = essayContent.content;
+  const mathTocItems = mathDoc ? mathDoc.items : [];
+  const renderedContent = isEssay
+    ? essayContent.content
+    : (mathDoc ? mathDoc.content : page.content);
   const essayNotes = essayContent.notes;
   const readTime = readingMinutes(renderedContent);
 %>
-<article class="entry-page<% if (isEssay) { %> entry-page-essay<% } %>">
+<article class="entry-page<% if (isEssay) { %> entry-page-essay<% } else if (isMathDoc) { %> entry-page-math<% } %>">
   <header class="entry-hero<% if (isEssay) { %> entry-doc-hero<% } else { %> panel<% } %>">
     <a class="entry-back" href="<%- url_for(sectionPath) %>">&larr; Back to <%= sectionLabel(section) %></a>
     <div class="hero-kicker"><%= section %></div>
@@ -172,7 +226,7 @@
     <% } %>
   </header>
 
-  <section class="entry-reading-layout<% if (isEssay) { %> entry-reading-layout-essay<% } %>">
+  <section class="entry-reading-layout<% if (isEssay) { %> entry-reading-layout-essay<% } else if (isMathDoc) { %> entry-reading-layout-math<% } %>">
     <% if (isEssay && tocItems.length) { %>
     <aside class="entry-toc">
       <div class="entry-toc-kicker">Table of Contents</div>
@@ -189,8 +243,27 @@
     </aside>
     <% } %>
 
-    <section class="entry-body panel<% if (isEssay) { %> entry-body-essay<% } %>">
-      <div class="prose<% if (isEssay) { %> prose-essay<% } %>">
+    <% if (isMathDoc && mathTocItems.length) { %>
+    <aside class="entry-toc entry-toc-math">
+      <div class="entry-toc-kicker">On this page</div>
+      <div class="entry-toc-title">Contents</div>
+      <nav class="entry-toc-nav" aria-label="Table of contents">
+        <ol class="entry-toc-list">
+          <% mathTocItems.forEach((item) => { %>
+          <li class="entry-toc-item mj-toc-item mj-toc-<%= item.slug %>">
+            <a class="entry-toc-link mj-toc-link" data-toc-link href="#<%= item.id %>">
+              <span class="mj-toc-kind"><%= item.kind %></span>
+              <span class="mj-toc-text"><%= item.title || item.kind %></span>
+            </a>
+          </li>
+          <% }) %>
+        </ol>
+      </nav>
+    </aside>
+    <% } %>
+
+    <section class="entry-body panel<% if (isEssay) { %> entry-body-essay<% } else if (isMathDoc) { %> entry-body-math<% } %>">
+      <div class="prose<% if (isEssay) { %> prose-essay<% } else if (isMathDoc) { %> prose-math<% } %>">
         <%- renderedContent %>
       </div>
     </section>

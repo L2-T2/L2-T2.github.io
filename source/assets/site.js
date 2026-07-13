@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const tocLinks = [...document.querySelectorAll("[data-toc-link]")];
-  const proseHeadings = [...document.querySelectorAll(".prose-essay h2[id], .prose-essay h3[id], .prose-essay h4[id]")];
+  const proseHeadings = [...document.querySelectorAll(".prose-essay h2[id], .prose-essay h3[id], .prose-essay h4[id], .prose-math .mj-env[id]")];
 
   if (tocLinks.length && proseHeadings.length && "IntersectionObserver" in window) {
     const linkById = new Map(

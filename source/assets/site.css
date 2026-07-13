@@ -1038,3 +1038,255 @@ body.page-entry-essay .entry-nav-card:hover .entry-nav-title {
     border-top: 0;
   }
 }
+
+/* ============================================================
+   Learning Journals — math / proof document layout
+   ============================================================ */
+
+body.page-entry-learning-journals {
+  --mj-line: rgba(123, 142, 98, 0.2);
+}
+
+body.page-entry-learning-journals .site-main {
+  width: min(64rem, calc(100vw - 2rem));
+}
+
+/* two-column reading layout: sticky contents + document body */
+.entry-reading-layout-math {
+  grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
+  gap: 2.2rem;
+  align-items: start;
+}
+
+/* ---- contents sidebar ---- */
+.entry-toc-math {
+  position: sticky;
+  top: 5.35rem;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+  padding-right: 0.4rem;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+.entry-toc-math .entry-toc-kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--site-text-soft);
+}
+
+.entry-toc-math .entry-toc-title {
+  margin-top: 0.15rem;
+  font: 700 1.3rem "Cormorant Garamond", serif;
+  color: var(--site-accent-dark);
+}
+
+.entry-toc-math .entry-toc-nav {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--mj-line);
+}
+
+.entry-toc-math .entry-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.mj-toc-link {
+  display: block;
+  padding: 0.32rem 0 0.32rem 0.7rem;
+  border-left: 2px solid var(--mj-line);
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.mj-toc-kind {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mj-kind, var(--site-text-soft));
+}
+
+.mj-toc-text {
+  display: block;
+  margin-top: 0.05rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--site-text-soft);
+}
+
+.mj-toc-link:hover,
+.mj-toc-link.is-active {
+  border-left-color: var(--mj-kind, var(--site-accent));
+}
+
+.mj-toc-link:hover .mj-toc-text,
+.mj-toc-link.is-active .mj-toc-text {
+  color: var(--site-text);
+}
+
+.mj-toc-statement,
+.mj-toc-definition { --mj-kind: #6f88b0; }
+.mj-toc-theorem,
+.mj-toc-proposition,
+.mj-toc-lemma,
+.mj-toc-corollary { --mj-kind: #9179b4; }
+.mj-toc-proof { --mj-kind: #6f8455; }
+.mj-toc-remark { --mj-kind: #b39a6b; }
+.mj-toc-intuition { --mj-kind: #d09a4f; }
+.mj-toc-example,
+.mj-toc-construction { --mj-kind: #5fa093; }
+
+/* ---- document body ---- */
+.entry-body-math {
+  padding: 2.1rem 2.3rem;
+}
+
+.prose-math {
+  font-family: "Source Serif 4", serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.prose-math > p:first-child {
+  color: var(--site-text-soft);
+  font-size: 1.08rem;
+}
+
+/* ---- theorem / proof / definition environments ---- */
+.prose-math .mj-env {
+  --mj-accent: var(--site-accent);
+  --mj-accent-dark: var(--site-accent-dark);
+  --mj-tint: rgba(142, 163, 109, 0.08);
+  margin: 1.7rem 0;
+  border: 1px solid var(--mj-line);
+  border-left: 3px solid var(--mj-accent);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+}
+
+.prose-math .mj-env-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  padding: 0.6rem 1.15rem;
+  background: var(--mj-tint);
+  border-bottom: 1px solid var(--mj-line);
+}
+
+.prose-math .mj-env-kind {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mj-accent-dark);
+}
+
+.prose-math .mj-env-title {
+  font-weight: 600;
+  color: var(--site-text);
+}
+
+.prose-math .mj-env-body {
+  padding: 1rem 1.15rem 0.1rem;
+}
+
+.prose-math .mj-env-body > :last-child {
+  margin-bottom: 1rem;
+}
+
+.prose-math .mj-env-statement,
+.prose-math .mj-env-definition {
+  --mj-accent: #6f88b0; --mj-accent-dark: #43587c; --mj-tint: rgba(95, 117, 153, 0.09);
+}
+.prose-math .mj-env-theorem,
+.prose-math .mj-env-proposition,
+.prose-math .mj-env-lemma,
+.prose-math .mj-env-corollary {
+  --mj-accent: #9179b4; --mj-accent-dark: #5f4b83; --mj-tint: rgba(131, 106, 166, 0.09);
+}
+.prose-math .mj-env-proof {
+  --mj-accent: #8ea36d; --mj-accent-dark: #5a6a47; --mj-tint: rgba(142, 163, 109, 0.1);
+}
+.prose-math .mj-env-remark {
+  --mj-accent: #b39a6b; --mj-accent-dark: #7d683f; --mj-tint: rgba(154, 133, 96, 0.1);
+}
+.prose-math .mj-env-intuition {
+  --mj-accent: #d09a4f; --mj-accent-dark: #9a6a1f; --mj-tint: rgba(197, 138, 61, 0.11);
+}
+.prose-math .mj-env-example,
+.prose-math .mj-env-construction {
+  --mj-accent: #5fa093; --mj-accent-dark: #3d7369; --mj-tint: rgba(79, 138, 128, 0.1);
+}
+
+/* "Definition 1.1"-style lead-in emphasised inside a box */
+.prose-math .mj-env-body > p > strong:first-child {
+  color: var(--mj-accent-dark);
+}
+
+/* ---- long display math: wide equations scroll instead of overflowing ---- */
+.prose-math .math.display {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.prose-math .katex-display {
+  margin: 1rem 0;
+  padding: 0.35rem 0.1rem 0.7rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ---- code blocks ---- */
+.prose-math pre {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* ---- responsive: stack contents above the document ---- */
+@media (max-width: 1000px) {
+  body.page-entry-learning-journals .site-main {
+    width: var(--site-width);
+  }
+
+  .entry-reading-layout-math {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .entry-toc-math {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--mj-line);
+    border-radius: var(--site-radius-sm);
+    background: rgba(255, 250, 243, 0.7);
+  }
+
+  .entry-toc-math .entry-toc-list {
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: 0.15rem 1rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .entry-body-math {
+    padding: 1.35rem;
+  }
+
+  .entry-toc-math .entry-toc-list {
+    grid-template-columns: 1fr;
+  }
+}
