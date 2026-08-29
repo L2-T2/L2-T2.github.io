@@ -575,6 +575,7 @@ body.page-entry-essay .entry-page-essay {
 }
 
 body.page-entry-essay .entry-page-essay > .entry-hero,
+body.page-entry-essay .entry-page-essay > .comments-panel,
 body.page-entry-essay .entry-page-essay > .entry-navigation {
   grid-column: 2;
 }
@@ -853,6 +854,48 @@ body.page-entry-essay .entry-annotations.is-positioned .essay-annotation {
   gap: 1rem;
 }
 
+.comments-panel {
+  padding: 1.5rem 1.7rem;
+}
+
+.comments-header {
+  margin-bottom: 1.25rem;
+}
+
+.comments-title {
+  margin: 0.5rem 0 0;
+  font: 700 2rem/1.05 "Cormorant Garamond", serif;
+}
+
+.comments-description,
+.comments-noscript {
+  margin: 0.55rem 0 0;
+  color: var(--site-text-soft);
+  line-height: 1.65;
+}
+
+.comments-panel .giscus,
+.comments-panel .giscus-frame {
+  width: 100%;
+}
+
+body.page-entry-essay .comments-panel {
+  border-color: var(--doc-line);
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+body.page-entry-essay .comments-title {
+  color: var(--doc-text);
+  font-family: "Source Serif 4", serif;
+}
+
+body.page-entry-essay .comments-description,
+body.page-entry-essay .comments-noscript {
+  color: var(--doc-text-soft);
+  font-family: "Source Sans 3", sans-serif;
+}
+
 .entry-navigation-doc {
   border-top: 1px solid var(--doc-line);
   padding-top: 1rem;
@@ -934,6 +977,7 @@ body.page-entry-essay .entry-nav-card:hover .entry-nav-title {
   }
 
   body.page-entry-essay .entry-page-essay > .entry-hero,
+  body.page-entry-essay .entry-page-essay > .comments-panel,
   body.page-entry-essay .entry-page-essay > .entry-navigation {
     grid-column: auto;
   }

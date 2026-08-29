@@ -107,6 +107,12 @@ entry:
   annotation_open: Open annotation
   annotation_back: Back to annotation reference
 
+comments:
+  kicker: Discussion
+  title: Comments
+  description: Share a question, correction, or follow-up. Comments are hosted in GitHub Discussions.
+  noscript: Enable JavaScript to view and join the discussion.
+
 toc:
   essay_kicker: Table of Contents
   essay_title: TOC

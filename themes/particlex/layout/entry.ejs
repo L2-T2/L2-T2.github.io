@@ -312,6 +312,8 @@
     <% } %>
   </section>
 
+  <%- partial("comments") %>
+
   <% if (newer || older) { %>
   <nav class="entry-navigation<% if (isEssay) { %> entry-navigation-doc<% } %>">
     <% if (newer) { %>

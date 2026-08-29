@@ -1,0 +1,25 @@
+<section class="comments-panel panel" aria-labelledby="comments-title">
+  <header class="comments-header">
+    <div class="hero-kicker"><%= __("comments.kicker") %></div>
+    <h2 class="comments-title" id="comments-title"><%= __("comments.title") %></h2>
+    <p class="comments-description"><%= __("comments.description") %></p>
+  </header>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="L2-T2/L2-T2.github.io"
+    data-repo-id="R_kgDOTRXOKQ"
+    data-category="General"
+    data-category-id="DIC_kwDOTRXOKc4DEdLn"
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="<%= page_language(page) === 'zh' ? 'zh-CN' : 'en' %>"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <noscript><p class="comments-noscript"><%= __("comments.noscript") %></p></noscript>
+</section>

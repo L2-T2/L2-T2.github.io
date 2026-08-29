@@ -517,6 +517,44 @@ body.page-home {
   gap: 1.2rem;
 }
 
+.home-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0.45rem;
+  border: 0;
+  border-bottom: 2px solid rgba(48, 58, 36, 0.42);
+  background: rgba(247, 234, 211, 0.94);
+  box-shadow: 0 0.35rem 0 rgba(48, 58, 36, 0.13);
+  backdrop-filter: blur(12px);
+}
+
+.home-nav-link {
+  padding: 0.55rem 0.7rem;
+  color: var(--home-text);
+  font: 700 0.78rem/1 "IBM Plex Sans", sans-serif;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.home-nav-link:hover,
+.home-nav-link:focus-visible,
+.home-nav-link.is-active {
+  background: var(--home-green);
+  color: var(--home-highlight);
+  outline: none;
+}
+
 .home-title {
   display: grid;
   gap: 1.2rem;
@@ -1136,28 +1174,32 @@ body.page-home {
 
 @media (min-width: 1101px) {
   body.page-home {
-    min-height: 100dvh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .home-shell {
-    height: auto;
-    min-height: 100dvh;
-    overflow: clip;
+    height: 100dvh;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
   }
 
   .box {
-    min-height: 100dvh;
+    height: 100%;
+    min-height: 0;
     grid-template-columns: clamp(27rem, 34vw, 35rem) minmax(0, 1fr);
+    overflow: hidden;
   }
 
   .left {
-    position: sticky;
-    top: 0;
-    align-self: start;
-    height: 100dvh;
-    overflow-y: auto;
+    position: relative;
+    align-self: stretch;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
     padding: clamp(1.45rem, 2vh, 2.2rem) clamp(1.35rem, 1.8vw, 2rem);
     box-shadow: 18px 0 36px rgba(56, 58, 34, 0.1);
   }
@@ -1343,8 +1385,12 @@ body.page-home {
   }
 
   .right {
-    min-height: 100dvh;
-    overflow: visible;
+    height: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
     padding: 2.2rem clamp(1.35rem, 2.4vw, 2.5rem) 2.5rem;
     gap: 1rem;
   }
@@ -1503,6 +1549,19 @@ body.page-home {
   .right {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  .home-nav {
+    position: sticky;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    box-shadow: 0 0.25rem 0 rgba(48, 58, 36, 0.12);
+  }
+
+  .home-nav-link {
+    text-align: center;
+    white-space: normal;
   }
 
   .side-panels {

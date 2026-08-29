@@ -107,6 +107,12 @@ entry:
   annotation_open: 打开侧注
   annotation_back: 返回侧注标记
 
+comments:
+  kicker: 讨论
+  title: 评论区
+  description: 欢迎提出问题、勘误或补充；评论内容由 GitHub Discussions 托管。
+  noscript: 请启用 JavaScript 以查看和参与讨论。
+
 toc:
   essay_kicker: 文章目录
   essay_title: 目录
