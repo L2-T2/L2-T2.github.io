@@ -1,0 +1,113 @@
+<%
+  const language = page_language(page);
+  const zh = language === 'zh';
+  const label = (en, cn) => zh ? cn : en;
+  const email = theme.contact && theme.contact.email_address;
+  const research = page.featured_research || [];
+  const news = (page.news || []).slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  const newsYears = [...new Set(news.map(item => String(item.date).slice(0, 4)))];
+  const newsDate = value => {
+    const parts = String(value).split('-');
+    return zh ? `${Number(parts[1])}月${Number(parts[2])}日` : `${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][Number(parts[1]) - 1]} ${parts[2]}`;
+  };
+%>
+<div class="profile-site" id="top">
+  <header class="profile-header">
+    <div class="profile-brand-group">
+    <a class="profile-brand" href="<%- localized_url('/', language) %>" aria-label="<%= label('Back to homepage', '返回主页') %>"><%= config.title %><span aria-hidden="true"> / </span></a>
+      <span class="profile-brand-note"><span aria-hidden="true">←</span> click this to go back main page</span>
+    </div>
+    <nav aria-label="<%= label('Profile navigation', '个人页面导航') %>">
+      <a href="#research"><span>/</span><%= label('research', '代表性研究') %></a>
+      <a href="#news"><span>/</span><%= label('news', '动态') %></a>
+      <a href="#background"><span>/</span><%= label('background', '学术经历') %></a>
+      <a href="<%- language_switch_url(zh ? 'en' : 'zh-CN') %>" lang="<%= zh ? 'en' : 'zh-CN' %>"><%= label('中文', 'EN') %></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="profile-hero" aria-labelledby="profile-title">
+      <div class="profile-intro">
+        <p class="profile-eyebrow"><%= label('MATHEMATICS & EXPLORATION', '数学 · 思考 · 探索') %></p>
+        <h1 id="profile-title"><%= page.profile_heading %></h1>
+        <div class="profile-bio"><%- page.content %></div>
+        <div class="profile-actions">
+          <a class="profile-button" href="<%- url_for(page.cv_url) %>" target="_blank" rel="noopener noreferrer" aria-label="<%= label('Open CV (PDF)', '查看简历（PDF）') %>">CV <span aria-hidden="true">↗</span></a>
+          <% if (email) { %><a class="profile-button profile-button-outline" href="mailto:<%= email %>"><%= label('Get in touch', '联系我') %></a><% } %>
+        </div>
+      </div>
+      <figure class="profile-portrait">
+        <img src="<%- url_for('/assets/profile-paris.jpg') %>" alt="<%= label('Liuting in Paris, France', 'Liuting 在法国巴黎') %>" width="1280" height="1706">
+        <figcaption><%= page.profile_caption %></figcaption>
+      </figure>
+    </section>
+
+    <section class="profile-section" id="research" aria-labelledby="research-title">
+      <h2 id="research-title"><span>/</span><%= label('featured-research', '代表性研究') %></h2>
+      <div class="profile-research">
+        <% research.forEach(paper => { %>
+        <article class="profile-entry">
+          <a class="profile-research-thumb" href="<%= paper.links[0].url %>" target="_blank" rel="noopener noreferrer">
+            <img src="<%- url_for(paper.image) %>" alt="<%= paper.image_alt %>" loading="lazy">
+          </a>
+          <div class="profile-entry-meta"><span class="profile-venue"><%= paper.venue %></span></div>
+          <h3><a href="<%= paper.links[0].url %>" target="_blank" rel="noopener noreferrer"><%= paper.title %></a></h3>
+          <div class="profile-paper-links">
+            <% paper.links.forEach(link => { %>
+            <a href="<%= link.url %>" target="_blank" rel="noopener noreferrer"><%= link.label %></a>
+            <% }); %>
+          </div>
+        </article>
+        <% }); %>
+      </div>
+    </section>
+
+    <section class="profile-section" id="news" aria-labelledby="news-title">
+      <h2 id="news-title"><span>/</span><%= label('news', '动态') %></h2>
+      <div class="profile-timeline">
+        <% newsYears.forEach(year => { %>
+        <div class="profile-year-group">
+          <h3 class="profile-year"><%= year %></h3>
+          <ul class="profile-timeline-list">
+            <% news.filter(item => String(item.date).startsWith(year)).forEach(item => { %>
+            <li class="profile-timeline-item">
+              <time class="profile-timeline-date" datetime="<%= item.date %>"><%= newsDate(item.date) %></time>
+              <div class="profile-timeline-body">
+                <% if (zh) { %>
+                我们的论文，<em><%= item.title %></em>，已被 <strong class="profile-conference"><%= item.venue %></strong> 录用<% if (item.oral) { %>为<span class="profile-oral">口头报告</span><% } %>。
+                <% } else { %>
+                Our work, <em><%= item.title %></em>, has been accepted<% if (item.oral) { %> for an <span class="profile-oral">oral</span> presentation<% } %> at <strong class="profile-conference"><%= item.venue %></strong>.
+                <% } %>
+              </div>
+            </li>
+            <% }); %>
+          </ul>
+        </div>
+        <% }); %>
+      </div>
+    </section>
+
+    <section class="profile-section" id="background" aria-labelledby="background-title">
+      <h2 id="background-title"><span>/</span><%= label('background', '学术经历') %></h2>
+      <div class="profile-timeline">
+        <% (page.background || []).forEach(position => { %>
+        <div class="profile-year-group">
+          <h3 class="profile-year"><%= position.year %></h3>
+          <ul class="profile-timeline-list">
+            <li class="profile-timeline-item profile-position">
+              <div class="profile-timeline-body">
+                <strong><%= position.role %></strong>
+                <p class="profile-school"><%= position.institution %></p>
+                <% if (position.detail) { %><p class="profile-school"><%= position.detail %></p><% } %>
+                <p class="profile-position-period"><%= position.period %></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <% }); %>
+      </div>
+    </section>
+  </main>
+
+  <footer class="profile-footer"><span>© <%= date(Date.now(), 'YYYY') %> <%= config.author %> · <%= config.title %></span><a href="#top"><%= label('Back to top', '返回顶部') %> ↑</a></footer>
+</div>

@@ -1,45 +1,59 @@
 ---
 title: About
 date: 2026-03-22
-layout: page
+layout: profile
 lang: en
 translation_key: about
+description: Mathematics, causality, and interdisciplinary exploration.
+profile_heading: Hi, I’m Liuting.
+profile_caption: Paris, France
+cv_url: /assets/documents/Liuting-Chen-CV.pdf
+news:
+  - date: "2026-07-19"
+    title: "I-FLOP: Fast Learning of Order and Parents from Interventional Data"
+    venue: PGM 2026
+    oral: true
+  - date: "2026-04-02"
+    title: "A Dynamic-Static Dataset of Facial Feature Variations Induced by Six Basic Tastes"
+    venue: FG 2026
+background:
+  - year: "2026"
+    role: Visiting Researcher
+    institution: Imperial College London
+    detail: Department of Infectious Disease Epidemiology, Faculty of Medicine
+    period: 1 June 2026 — present
+  - year: "2025"
+    role: M.Sc. Student in Mathematics
+    institution: University of Copenhagen
+    period: 2025 — present
+featured_research:
+  - title: "I-FLOP: Fast Learning of Order and Parents from Interventional Data"
+    image: /assets/research/i-flop-pgm2026.png
+    image_alt: I-FLOP — PGM 2026 presentation
+    venue: PGM 2026
+    authors: Liuting Chen, Alex Markham
+    description: "Extending FLOP to interventional data with interventional BIC scoring and Cholesky-based updates for efficient causal structure learning."
+    links:
+      - label: paper
+        url: https://arxiv.org/abs/2608.28245
+      - label: code
+        url: https://github.com/L2-T2/I-FLOP
+  - title: "A Dynamic-Static Dataset of Facial Feature Variations Induced by Six Basic Tastes"
+    image: /assets/research/tasteface-fg2026.png
+    image_alt: FG 2026 — Kyoto conference illustration
+    venue: FG 2026
+    authors: Liuting Chen, Renyu Xu
+    description: "TasteFace captures spontaneous facial responses to six standardized taste stimuli, combining dynamic recordings and static frames for objective gustatory analysis."
+    links:
+      - label: paper
+        url: https://ieeexplore.ieee.org/document/11556943
+      - label: dataset
+        url: https://github.com/L2-T2/TasteFace-Dataset
+
 ---
 
-## Profile
+My name is **Liuting Chen**. I am an **M.Sc. student in Mathematics at the University of Copenhagen**, expecting to graduate in **January 2027**. I am also conducting research with the **Global Pathogen Analysis Platform (GPAP)**.
 
-I am currently pursuing an **MSc in Mathematics** at the **University of Copenhagen**. This site is organized as a working research archive rather than a chronological blog: learning journals capture technical learning, essays hold longer arguments, projects trace sustained investigations, and technical notes document reproducible tooling.
+My research interests center on **human-centered AI**. I explore how **causal inference, Bayesian machine learning, and related quantitative methods** can help model and estimate human behavior and human–AI interactions, while accounting for uncertainty.
 
-## Research Focus
-
-- **Causal inference**: identification, intervention, and structural reasoning.
-- **Causal discovery**: learning graph structure from observational data.
-- **High-dimensional statistics**: inference under complex dependence and many-variable settings.
-- **Narrative systems**: formal and computational approaches to storytelling structures.
-- **Digital humanities**: using quantitative and computational methods on cultural material.
-
-## Site Structure
-
-- [Learning Journals](/learning-journals/) for proof sketches, derivations, and concept clarifications.
-- [Essay](/essay/) for long-form methodological and interdisciplinary writing.
-- [Project](/project/) for ongoing research and engineering work.
-- [Technical Notes](/technical-notes/) for implementation notes, tooling, and reproducible workflows.
-- [Archive](/archives/) for a date-based overview of all published entries.
-
-## Contact
-
-- GitHub: [L2-T2](https://github.com/L2-T2)
-- Site archive: [All entries](/archives/)
-
-## Background
-
-- **2024-present**: MSc in Mathematics, University of Copenhagen.
-- Current work emphasizes causality, statistical methodology, and research-oriented writing.
-
-## Working Principle
-
-The site is intentionally structured around content type rather than theme chrome. New material should only need:
-
-1. A markdown file in `source/_posts/`.
-2. A category of `learning-journals`, `essay`, `project`, or `technical-notes`.
-3. Optional metadata such as tags, status, repo, or course.
+I am seeking **PhD opportunities starting in October 2027**, especially in groups exploring these questions. I welcome conversations about research and potential collaborations.

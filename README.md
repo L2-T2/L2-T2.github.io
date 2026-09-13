@@ -7,6 +7,8 @@ It is a [Hexo](https://hexo.io/) static site organized as a **research archive**
 The editing principle is simple: **edit the source files, then let Hexo regenerate the static output.** You never hand-edit the generated site.
 
 > New to publishing here? Read **[PUBLISHING.md](PUBLISHING.md)** for the step-by-step "how to add a post and put it online" workflow.
+>
+> For authenticated mobile writing, private previews, explicit publishing, and version recovery, see **[editor/README.md](editor/README.md)**.
 
 ---
 
@@ -25,6 +27,8 @@ Useful commands:
 npm run clean      # clear Hexo cache (db.json) and the generated public/ folder
 npm run build      # generate the static site into public/
 npm run server     # live local preview at http://localhost:4000/ (alias: npm run dev)
+npm test           # verify the private editor's content and auth rules
+npm run editor     # run the authenticated editor (requires server-side secrets)
 ```
 
 If `hexo` is reported as `command not found`, use the `npm run` scripts above or `npx hexo <command>`. Hexo is a **project dependency**, not a required global install.
@@ -54,13 +58,14 @@ Because CI rebuilds the site from source, the generated `public/` folder and the
 
 ## Project Model
 
-The site has three layers:
+The project has four clearly separated layers:
 
 1. **Content layer** — Markdown entries and page copy in `source/`.
 2. **Presentation layer** — homepage files (`homepage/`), shared CSS/JS (`source/assets/`), and EJS layouts (`themes/particlex/layout/`).
 3. **Generated layer** — static HTML/CSS/JS output in `public/`.
+4. **Private editing layer** — authenticated server, drafts, real-theme previews, and Git publishing in `editor/`.
 
-Only the first two layers are edited by hand. **`public/` is generated output** and is overwritten by every build.
+Only the first two layers are public source. **`public/` is generated output** and is overwritten by every build. Private editor state lives in the ignored `.content/` directory and never enters the Pages artifact.
 
 ### Toolchain
 
@@ -101,6 +106,11 @@ Only the first two layers are edited by hand. **`public/` is generated output** 
 │
 ├── scripts/
 │   └── copy-homepage-assets.js   # copies homepage/ assets to public/ and exposes the template helper
+├── editor/                        # authenticated mobile-first writing and publishing service
+│   ├── server.mjs                # private HTTP API and security boundary
+│   ├── lib/                      # content, drafts, preview, auth, and Git modules
+│   ├── public/                   # dependency-free mobile editor UI
+│   └── README.md                 # setup, deployment, and security guide
 │
 ├── scaffolds/                    # templates used by `hexo new <layout> "<title>"`
 │   ├── learning-journals.md      #   learning journals (custom)
@@ -400,3 +410,4 @@ Reference them with site-root paths, e.g. `[Download PDF](/files/example.pdf)`.
 | `WEBSITE_GUIDE.md`  | 中文维护指南 (Chinese maintenance workflow)                |
 | `PROJECT_GUIDE.md`  | Editorial / content-planning guide                         |
 | `POST_TEMPLATE.md`  | Generic front-matter + body template                       |
+| `editor/README.md`  | Private mobile editor setup, state model, and operations    |

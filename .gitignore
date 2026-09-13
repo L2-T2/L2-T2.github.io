@@ -18,3 +18,7 @@ Thumbs.db
 *.swo
 .idea/
 .vscode/
+
+# --- Private editor state (never publish or commit) ---
+.content/
+.env.editor

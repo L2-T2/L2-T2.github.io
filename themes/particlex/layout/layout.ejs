@@ -1,9 +1,11 @@
 <%
   const isHomePage = is_home() || page.layout === "home";
+  const isProfilePage = page.layout === "profile";
   const documentLanguage = page_language_code(page);
 
   let template = "page";
   if (isHomePage) template = "index";
+  else if (isProfilePage) template = "profile";
   else if (page.layout === "section") template = "section";
   else if (page.layout === "entry" || is_post()) template = "entry";
   else if (page.layout === "archives" || is_archive()) template = "archives";
@@ -45,6 +47,9 @@
     <% if (isHomePage) { %>
     <link rel="stylesheet" href="<%- url_for('/homepage/homepage.css') %>">
     <script defer src="<%- url_for('/homepage/homepage.js') %>"></script>
+    <% } else if (isProfilePage) { %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&display=swap">
+    <link rel="stylesheet" href="<%- url_for('/assets/profile.css') %>">
     <% } else { %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -52,7 +57,7 @@
     <% } %>
   </head>
   <body class="<%= bodyClasses.join(' ') %>">
-    <% if (isHomePage) { %>
+    <% if (isHomePage || isProfilePage) { %>
       <%- partial(template) %>
     <% } else { %>
       <div class="site-frame">

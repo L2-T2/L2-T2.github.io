@@ -1,45 +1,59 @@
 ---
 title: 关于
 date: 2026-03-22
-layout: page
+layout: profile
 lang: zh-CN
 translation_key: about
+description: 数学、因果推断与跨学科探索。
+profile_heading: 你好，我是 Liuting。
+profile_caption: Paris, France
+cv_url: /assets/documents/Liuting-Chen-CV.pdf
+news:
+  - date: "2026-07-19"
+    title: "I-FLOP: Fast Learning of Order and Parents from Interventional Data"
+    venue: PGM 2026
+    oral: true
+  - date: "2026-04-02"
+    title: "A Dynamic-Static Dataset of Facial Feature Variations Induced by Six Basic Tastes"
+    venue: FG 2026
+background:
+  - year: "2026"
+    role: 访问研究员
+    institution: 帝国理工学院
+    detail: 医学院 · 传染病流行病学系
+    period: 2026 年 6 月 1 日 — 至今
+  - year: "2025"
+    role: 数学硕士研究生
+    institution: 哥本哈根大学
+    period: 2025 — 至今
+featured_research:
+  - title: "I-FLOP: Fast Learning of Order and Parents from Interventional Data"
+    image: /assets/research/i-flop-pgm2026.png
+    image_alt: I-FLOP — PGM 2026 presentation
+    venue: PGM 2026
+    authors: Liuting Chen, Alex Markham
+    description: "将 FLOP 扩展到干预数据，结合干预 BIC 评分与 Cholesky 更新，高效学习因果图的变量顺序和父节点。"
+    links:
+      - label: paper
+        url: https://arxiv.org/abs/2608.28245
+      - label: code
+        url: https://github.com/L2-T2/I-FLOP
+  - title: "A Dynamic-Static Dataset of Facial Feature Variations Induced by Six Basic Tastes"
+    image: /assets/research/tasteface-fg2026.png
+    image_alt: FG 2026 — Kyoto conference illustration
+    venue: FG 2026
+    authors: Liuting Chen, Renyu Xu
+    description: "TasteFace 数据集记录六种标准化味觉刺激诱发的自发面部变化，结合动态视频与静态帧，支持客观味觉反应分析。"
+    links:
+      - label: paper
+        url: https://ieeexplore.ieee.org/document/11556943
+      - label: dataset
+        url: https://github.com/L2-T2/TasteFace-Dataset
+
 ---
 
-## 个人简介
+我是 **Liuting Chen**，目前在**哥本哈根大学攻读数学硕士学位**，预计于 **2027 年 1 月毕业**。同时，我也在与 **Global Pathogen Analysis Platform（GPAP）**开展研究工作。
 
-我目前正在**哥本哈根大学**攻读**数学硕士学位**。本网站是一份持续整理中的研究档案，而不是按时间顺序排列的博客：学习日志记录技术学习过程，随笔容纳篇幅较长的论述，项目追踪持续性的研究，技术笔记则记录可复现的工具与流程。
+我的研究兴趣聚焦于**以人为中心的人工智能（human-centered AI）**。我尝试运用**因果推断、贝叶斯机器学习等定量方法**，对人类行为与人机交互进行建模和量化估计，并刻画其中的不确定性。
 
-## 研究方向
-
-- **因果推断**：识别、干预与结构推理。
-- **因果发现**：从观测数据中学习图结构。
-- **高维统计**：在复杂依赖关系和多变量情境下进行统计推断。
-- **叙事系统**：以形式化和计算方法研究叙事结构。
-- **数字人文**：运用定量与计算方法研究文化材料。
-
-## 网站结构
-
-- [学习日志](/zh/learning-journals/)：证明思路、推导与概念辨析。
-- [随笔](/zh/essay/)：有关方法论与跨学科议题的长篇写作。
-- [项目](/zh/project/)：持续推进的研究与工程工作。
-- [技术笔记](/zh/technical-notes/)：实现笔记、工具与可复现工作流。
-- [归档](/zh/archives/)：按日期查看所有已发布条目。
-
-## 联系方式
-
-- GitHub：[L2-T2](https://github.com/L2-T2)
-- 网站归档：[全部条目](/zh/archives/)
-
-## 背景
-
-- **2024年至今**：哥本哈根大学数学硕士。
-- 目前的工作重点是因果性、统计方法论与研究型写作。
-
-## 工作原则
-
-本网站有意围绕内容类型而非主题外观来组织。新增内容只需要：
-
-1. `source/_posts/` 中的一个 Markdown 文件。
-2. `learning-journals`、`essay`、`project` 或 `technical-notes` 其中一个分类。
-3. 标签、状态、仓库或课程等可选元数据。
+我正在寻找 **2027 年 10 月入学的博士机会**，希望加入探索上述问题的研究团队，也欢迎就相关研究与潜在合作展开交流。
