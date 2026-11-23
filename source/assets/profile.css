@@ -16,7 +16,7 @@ a:focus-visible { outline: 2px solid var(--profile-accent); outline-offset: 5px;
 .profile-eyebrow { color: var(--profile-muted); font-size: 11px; letter-spacing: 0.12em; margin: 0 0 13px; }
 h1 { font-size: clamp(32px, 4vw, 49px); line-height: 1.17; letter-spacing: -0.045em; margin: 0; font-weight: 700; }
 .profile-bio { margin-top: 25px; }
-.profile-bio p { margin: 0 0 16px; }
+.profile-bio p { margin: 0 0 16px; text-align: justify; }
 .profile-bio strong { font-weight: 600; }
 .profile-bio a, .profile-oral { color: #d62828; font-family: 'JetBrains Mono', monospace; }
 .profile-bio a:hover { text-decoration-thickness: 2px; }
