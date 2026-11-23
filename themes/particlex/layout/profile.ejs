@@ -3,6 +3,7 @@
   const zh = language === 'zh';
   const label = (en, cn) => zh ? cn : en;
   const email = theme.contact && theme.contact.email_address;
+  const linkedin = theme.social && theme.social.linkedin;
   const research = page.featured_research || [];
   const news = (page.news || []).slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
   const newsYears = [...new Set(news.map(item => String(item.date).slice(0, 4)))];
@@ -37,6 +38,9 @@
         <div class="profile-bio"><%- page.content %></div>
         <div class="profile-actions">
           <a class="profile-button" href="<%- url_for(page.cv_url) %>" target="_blank" rel="noopener noreferrer" aria-label="<%= label('Open CV (PDF)', '查看简历（PDF）') %>">CV <span aria-hidden="true">↗</span></a>
+          <% if (linkedin) { %>
+          <a class="profile-button" href="<%= linkedin %>" target="_blank" rel="noopener noreferrer" aria-label="<%= label('LinkedIn profile (opens in a new tab)', 'LinkedIn 个人主页（在新标签页打开）') %>">LinkedIn <span aria-hidden="true">↗</span></a>
+          <% } %>
           <% if (email) { %><a class="profile-button profile-button-outline" href="mailto:<%= email %>"><%= label('Get in touch', '联系我') %></a><% } %>
         </div>
       </div>
