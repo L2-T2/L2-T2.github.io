@@ -73,6 +73,7 @@ h3 { font-size: 17px; line-height: 1.45; font-weight: 600; margin: 18px 0 10px; 
 .profile-timeline-item { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: 0.9rem; padding: 0.45rem 0 0.45rem 1.1rem; }
 .profile-timeline-date { padding-top: 0.1672rem; color: #77705f; font: 0.76rem/1.6 'JetBrains Mono', monospace; }
 .profile-timeline-body { font-size: 0.94rem; line-height: 1.55; }
+#news .profile-timeline-body > p { margin: 0; }
 .profile-oral { display: inline-block; margin: 0 0.1rem; padding: 0 0.3rem 0.03rem; border: 1px solid #d62828; border-radius: 50%; color: #d62828; font: 0.72em/1.55 'JetBrains Mono', monospace; transform: rotate(-4deg); }
 .profile-conference { background: linear-gradient(transparent 12%, #ffe69a 12%, #ffe69a 92%, transparent 92%); padding: 0.05em 0.3em; border-radius: 3px; }
 .profile-school { margin: 0.2rem 0 0; color: var(--profile-muted); }

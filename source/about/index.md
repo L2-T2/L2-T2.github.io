@@ -9,6 +9,9 @@ profile_heading: Hi, I’m Liuting.
 profile_caption: Paris, France
 cv_url: /assets/documents/Liuting-Chen-CV.pdf
 news:
+  - date: "2026-11-20"
+    text: >-
+      I successfully defended my master’s thesis, *ASD: Auditing Source Dependence in LLM-as-a-Judge Systems*, at the **University of Copenhagen**.
   - date: "2026-07-19"
     title: "I-FLOP: Fast Learning of Order and Parents from Interventional Data"
     venue: PGM 2026
