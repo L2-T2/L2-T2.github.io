@@ -63,8 +63,8 @@ featured_research:
 
 ---
 
-I’m Liuting Chen, an MSc student in Mathematics at the University of Copenhagen (graduating in April 2027). I’m also a visiting researcher at Imperial College London, working with Samir Bhatt and Harrison Bo Hua Zhu to evaluate AI tools for pathogen surveillance as part of the Global Pathogen Analysis Platform.
+I’m Liuting Chen, an MSc student in Mathematics at the University of Copenhagen (graduating in April 2027). I’m also a visiting researcher at Imperial College London, working with [Samir Bhatt](https://profiles.imperial.ac.uk/s.bhatt) and [Harrison Bo Hua Zhu](https://harrisonzhu508.github.io/) to evaluate AI tools for pathogen surveillance as part of the [Global Pathogen Analysis Platform](https://gpap-project.github.io/team/).
 
-For my master’s thesis, supervised by Harrison Bo Hua Zhu and Jun Yang, I developed Auditing Source Dependence to measure how sensitive an LLM judge is to source information and which parts of the source drive that sensitivity. Across biology benchmarks, I found that judge verdicts are highly sensitive to source content, suggesting that source sensitivity should be reported alongside standard accuracy.
+For my master’s thesis, supervised by [Harrison Bo Hua Zhu](https://harrisonzhu508.github.io/) and [Jun Yang](https://jun.sites.ku.dk/), I developed Auditing Source Dependence to measure how sensitive an LLM judge is to source information and which parts of the source drive that sensitivity. Across biology benchmarks, I found that judge verdicts are highly sensitive to source content, suggesting that source sensitivity should be reported alongside standard accuracy.
 
 I’m broadly interested in causal and statistical inference, reinforcement learning, and AI evaluation, with a focus on real-world applications. I enjoy developing methods, examining their assumptions, and testing them on real data, especially through cross-disciplinary collaborations that bring new questions. I’m seeking PhD opportunities starting in October 2027 in these areas. Please reach out to discuss potential projects or collaborations.
