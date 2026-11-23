@@ -52,8 +52,8 @@ jobs:
           cp public/about/index.html "$site/index.html"
           cp .github/pages/about-redirect.html "$site/about/index.html"
           cp public/assets/profile.css public/assets/profile-paris.jpg "$site/assets/"
-          cp public/assets/documents/Liuting-Chen-CV.pdf "$site/assets/documents/"
-          cp public/assets/research/i-flop-pgm2026.png public/assets/research/tasteface-fg2026.png "$site/assets/research/"
+          cp public/assets/documents/Liuting-Chen-CV.pdf public/assets/documents/asd-defense-slides.pdf "$site/assets/documents/"
+          cp public/assets/research/i-flop-pgm2026.png public/assets/research/tasteface-fg2026.png public/assets/research/asd-defense-cover.jpg "$site/assets/research/"
           touch "$site/.nojekyll"
 
       - name: Configure Pages

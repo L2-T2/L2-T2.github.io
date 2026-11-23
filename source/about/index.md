@@ -30,6 +30,14 @@ background:
     institution: University of Copenhagen
     period: 2025 — present
 featured_research:
+  - title: "ASD: Auditing Source Dependence in LLM-as-a-Judge Systems"
+    image: /assets/research/asd-defense-cover.jpg
+    image_alt: "Title slide of Liuting Chen’s Auditing Source Dependence presentation"
+    venue: "Master’s thesis · University of Copenhagen · 2026"
+    authors: Liuting Chen
+    links:
+      - label: slides
+        url: /assets/documents/asd-defense-slides.pdf
   - title: "I-FLOP: Fast Learning of Order and Parents from Interventional Data"
     image: /assets/research/i-flop-pgm2026.png
     image_alt: I-FLOP — PGM 2026 presentation
