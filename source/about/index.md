@@ -52,8 +52,10 @@ featured_research:
 
 ---
 
-My name is **Liuting Chen**. I am an **M.Sc. student in Mathematics at the University of Copenhagen**, expecting to graduate in **January 2027**. I am also conducting research with the **Global Pathogen Analysis Platform (GPAP)**.
+I’m Liuting Chen, an MSc student in Mathematics at the University of Copenhagen (graduating in April 2027). I’m also a visiting researcher at Imperial College London, working with Samir Bhatt and Harrison Bo Hua Zhu to evaluate AI tools for pathogen surveillance as part of the Global Pathogen Analysis Platform.
 
-My research interests center on **human-centered AI**. I explore how **causal inference, Bayesian machine learning, and related quantitative methods** can help model and estimate human behavior and human–AI interactions, while accounting for uncertainty.
+For my master’s thesis, supervised by Harrison Bo Hua Zhu and Jun Yang, I developed Auditing Source Dependence to measure how sensitive an LLM judge is to source information and which parts of the source drive that sensitivity. Across biology benchmarks, I found that judge verdicts are highly sensitive to source content, suggesting that source sensitivity should be reported alongside standard accuracy.
 
-I am seeking **PhD opportunities starting in October 2027**, especially in groups exploring these questions. I welcome conversations about research and potential collaborations.
+I’m broadly interested in causal and statistical inference and their real-world applications. I enjoy developing methods, understanding the assumptions behind them, and testing how well they work on real data—especially in collaborations where people from different fields bring new questions to the table.
+
+I’m looking for PhD opportunities starting in October 2027, particularly in statistical inference, reinforcement learning, and AI evaluation. If you’d like to discuss potential projects or collaborations, feel free to reach out at [jnk758@alumni.ku.dk](mailto:jnk758@alumni.ku.dk).
