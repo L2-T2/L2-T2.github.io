@@ -4,6 +4,8 @@ This is the everyday workflow for adding content to **https://l2-t2.github.io**.
 
 For the overall architecture, see [README.md](README.md).
 
+**Current publication scope.** GitHub Pages serves the English About profile at `/`. The old `/about/` link leads to the homepage. Use `npm run server` to work on the full site locally and keep edits on your computer until you are ready to sync. The full-site publishing instructions below apply when all sections reopen.
+
 > **在手机上写作：** 项目现在包含独立的私有文章工作台。它把草稿、真实主题预览和正式发布严格分开，并提供发布版本恢复。部署与使用说明见 [editor/README.md](editor/README.md)。下面的命令行流程仍然保留，适合直接维护 Markdown。
 
 ---

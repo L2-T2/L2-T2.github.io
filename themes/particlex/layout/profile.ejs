@@ -14,14 +14,18 @@
 <div class="profile-site" id="top">
   <header class="profile-header">
     <div class="profile-brand-group">
-    <a class="profile-brand" href="<%- localized_url('/', language) %>" aria-label="<%= label('Back to homepage', '返回主页') %>"><%= config.title %><span aria-hidden="true"> / </span></a>
+      <a class="profile-brand" href="<%- localized_url('/', language) %>" aria-label="<%= label('Back to homepage', '返回主页') %>"><%= config.title %><span aria-hidden="true"> / </span></a>
+      <% if (!config.standalone_profile) { %>
       <span class="profile-brand-note"><span aria-hidden="true">←</span> click this to go back main page</span>
+      <% } %>
     </div>
     <nav aria-label="<%= label('Profile navigation', '个人页面导航') %>">
       <a href="#research"><span>/</span><%= label('research', '代表性研究') %></a>
       <a href="#news"><span>/</span><%= label('news', '动态') %></a>
       <a href="#background"><span>/</span><%= label('background', '学术经历') %></a>
+      <% if (!config.standalone_profile) { %>
       <a href="<%- language_switch_url(zh ? 'en' : 'zh-CN') %>" lang="<%= zh ? 'en' : 'zh-CN' %>"><%= label('中文', 'EN') %></a>
+      <% } %>
     </nav>
   </header>
 

@@ -1,4 +1,4 @@
-# Build the Hexo site and publish it to GitHub Pages.
+# Publish the English profile while the full Hexo site is edited locally.
 #
 # One-time setup: in the repository, open
 #   Settings -> Pages -> Build and deployment -> Source
@@ -41,11 +41,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build static site into public/
-        run: npx hexo clean && npx hexo generate
+      - name: Render the profile with single-page navigation
+        run: npx hexo generate --bail --config _config.yml,.github/pages/profile.yml
 
-      - name: Disable Jekyll processing on the output
-        run: touch public/.nojekyll
+      - name: Stage only the homepage, its assets and the old About link
+        run: |
+          site="$RUNNER_TEMP/profile-site"
+          mkdir "$site"
+          mkdir -p "$site/about" "$site/assets/documents" "$site/assets/research"
+          cp public/about/index.html "$site/index.html"
+          cp .github/pages/about-redirect.html "$site/about/index.html"
+          cp public/assets/profile.css public/assets/profile-paris.jpg "$site/assets/"
+          cp public/assets/documents/Liuting-Chen-CV.pdf "$site/assets/documents/"
+          cp public/assets/research/i-flop-pgm2026.png public/assets/research/tasteface-fg2026.png "$site/assets/research/"
+          touch "$site/.nojekyll"
 
       - name: Configure Pages
         uses: actions/configure-pages@v4
@@ -53,7 +62,7 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ${{ runner.temp }}/profile-site
 
   deploy:
     needs: build
