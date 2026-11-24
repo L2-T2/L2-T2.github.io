@@ -4,7 +4,8 @@ date: 2026-03-22
 layout: profile
 lang: en
 translation_key: about
-description: Mathematics, causality, and interdisciplinary exploration.
+browser_title: "Liuting Chen | Academic Homepage"
+description: "Liuting Chen studies mathematics at the University of Copenhagen and researches AI evaluation at Imperial College London. Interests include causal inference and reinforcement learning."
 profile_heading: Hi, I’m Liuting.
 profile_caption: Paris, France
 cv_url: /assets/documents/Liuting-Chen-CV.pdf
@@ -63,8 +64,8 @@ featured_research:
 
 ---
 
-I’m Liuting Chen, an MSc student in Mathematics at the University of Copenhagen (graduating in April 2027). I’m also a visiting researcher at Imperial College London, working with [Samir Bhatt](https://profiles.imperial.ac.uk/s.bhatt) and [Harrison Bo Hua Zhu](https://harrisonzhu508.github.io/) to evaluate AI tools for pathogen surveillance as part of the [Global Pathogen Analysis Platform](https://gpap-project.github.io/team/).
+I’m Liuting Chen, an MSc student in Mathematics at the University of Copenhagen. I expect to graduate in April 2027. I’m also a visiting researcher at Imperial College London, working with [Samir Bhatt](https://profiles.imperial.ac.uk/s.bhatt) and [Harrison Bo Hua Zhu](https://harrisonzhu508.github.io/) to evaluate AI tools for pathogen surveillance as part of the [Global Pathogen Analysis Platform](https://gpap-project.github.io/team/). I’m seeking PhD opportunities starting in October 2027.
 
-For my master’s thesis, supervised by [Harrison Bo Hua Zhu](https://harrisonzhu508.github.io/) and [Jun Yang](https://jun.sites.ku.dk/), I developed Auditing Source Dependence to measure how sensitive an LLM judge is to source information and which parts of the source drive that sensitivity. Across biology benchmarks, I found that judge verdicts are highly sensitive to source content, suggesting that source sensitivity should be reported alongside standard accuracy.
+For my master’s thesis, supervised by [Harrison Bo Hua Zhu](https://harrisonzhu508.github.io/) and [Jun Yang](https://jun.sites.ku.dk/), I developed Auditing Source Dependence (ASD) to study how reference material influences LLM judges. I kept the answers fixed and varied the evidence available to each judge. Across three biology benchmarks, providing the original source paper improved grading accuracy in 70 of 72 matched comparisons.
 
-I’m broadly interested in causal and statistical inference, reinforcement learning, and AI evaluation, with a focus on real-world applications. I enjoy developing methods, examining their assumptions, and testing them on real data, especially through cross-disciplinary collaborations that bring new questions. I’m seeking PhD opportunities starting in October 2027 in these areas. Please reach out to discuss potential projects or collaborations.
+I’m broadly interested in causal and statistical inference, reinforcement learning, and AI evaluation, with a focus on real-world applications. I enjoy developing methods, examining their assumptions, and testing them on real data, especially through cross-disciplinary collaborations that bring new questions. Please reach out to discuss potential projects or collaborations.
