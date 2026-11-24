@@ -33,7 +33,7 @@ featured_research:
   - title: "ASD: Auditing Source Dependence in LLM-as-a-Judge Systems"
     image: /assets/research/asd-defense-cover.jpg
     image_alt: "Title slide of Liuting Chen’s Auditing Source Dependence presentation"
-    venue: "Master’s thesis · University of Copenhagen · 2026"
+    venue: "Master's thesis"
     authors: Liuting Chen
     links:
       - label: slides
